@@ -227,6 +227,43 @@ gtag('config', 'G-XXXXXXXXXX');
   .faq details[open] summary::after{transform:rotate(45deg);}
   .faq .fa{padding:0 26px 22px;font-size:14.5px;color:var(--humo);line-height:1.65;max-width:600px;}
 
+  /* secciones claras — ritmo visual con las oscuras */
+  section.claro{background:#FFFFFF;color:#121014;}
+  section.claro .chip{border-color:rgba(0,0,0,.12);color:#5D575B;background:rgba(0,0,0,.02);}
+  section.claro .sub{color:#5D575B;}
+  section.claro h2,section.claro h3{color:#121014;}
+  section.claro .plans-note{color:#5D575B;}
+  section.claro .link{color:#121014;}
+  section.claro .link:hover{color:#fe2f7e;}
+
+  /* lead: cuando se envió con éxito, el chip pequeño se reemplaza por un mensaje grande */
+  .lead.enviado > *:not(.ok){display:none;}
+  .lead.enviado .ok{display:block;}
+  .lead .ok.big{text-align:left;}
+  .lead .ok.big .biglbl{font-family:'Inter',sans-serif;font-weight:500;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:#5D575B;display:flex;align-items:center;gap:10px;}
+  .lead .ok.big .biglbl .dotp{width:8px;height:8px;}
+  .lead .ok.big .bigmsg{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.4vw,34px);line-height:1.2;letter-spacing:-0.01em;color:#121014;margin-top:16px;max-width:520px;}
+  .lead .ok.big .bigsub{color:#5D575B;font-size:15px;margin-top:14px;max-width:520px;}
+
+  /* portafolio en tema claro */
+  section.claro .prod{background:#F1ECEF;color:#121014;}
+  section.claro .prod h3{color:#121014;}
+  section.claro .prod p{color:#5D575B;}
+  section.claro .prod .rl{color:#5D575B;}
+  section.claro .prod:hover{border-color:rgba(254,47,126,.35);}
+  section.claro .notlbl{color:#5D575B;}
+
+  /* lead magnet en tema claro */
+  section.claro .lead{background:#F1ECEF;color:#121014;}
+  section.claro .lead h3{color:#121014;}
+  section.claro .lead p.d{color:#5D575B;}
+  section.claro .lead input{background:#FFFFFF;border:1px solid rgba(0,0,0,.12);color:#121014;}
+  section.claro .lead input::placeholder{color:#8A8388;}
+  section.claro .lead input:focus{border-color:#fe2f7e;}
+  section.claro .lead .btn{background:#fe2f7e;color:#121014;}
+  section.claro .lead .priv{color:#5D575B;}
+  section.claro .lead .chip{background:rgba(0,0,0,.04);}
+
   /* sticky CTA móvil */
   .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:40;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(14,12,16,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:translateY(110%);transition:transform .3s ease;display:none;}
   .sticky-cta.show{transform:none;}
@@ -335,7 +372,7 @@ gtag('config', 'G-XXXXXXXXXX');
   </div>
 </section>
 
-<section id="productos">
+<section id="productos" class="claro">
   <div class="wrap">
     <span class="chip">Portafolio</span>
     <h2 style="margin-top:22px;">Algunas cosas que hemos construido.</h2>
@@ -420,7 +457,7 @@ gtag('config', 'G-XXXXXXXXXX');
   </div>
 </section>
 
-<section id="recursos" style="padding-top:0;">
+<section id="recursos" class="claro">
   <div class="wrap">
     <div class="lead">
       <span class="chip">Autodiagnóstico gratis</span>
@@ -431,7 +468,11 @@ gtag('config', 'G-XXXXXXXXXX');
         <button class="btn" type="submit" style="box-shadow:none;">Quiero descubrir la mía</button>
       </form>
       <p class="priv">Cero spam. La guía y un correo semanal con más ideas para tu negocio — te das de baja cuando quieras.</p>
-      <div class="ok" id="leadOk"><span class="chip"><span class="dotp"></span>Listo — tu guía va en camino a tu correo</span></div>
+      <div class="ok big" id="leadOk">
+        <span class="biglbl"><span class="dotp"></span>Listo</span>
+        <p class="bigmsg">Tu guía va en camino a tu correo.</p>
+        <p class="bigsub">Revisa tu bandeja de entrada — y por si acaso, echa un ojo a la carpeta de spam.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -560,8 +601,7 @@ gtag('config', 'G-XXXXXXXXXX');
         body: new FormData(lf)
       }).then(function(r){
         if (r.ok) {
-          lf.style.display = 'none';
-          document.getElementById('leadOk').style.display = 'block';
+          lf.closest('.lead').classList.add('enviado');
           if (typeof gtag === 'function') gtag('event', 'guia_enviada', {origen: 'recursos'});
         } else {
           alert('No se pudo enviar. Escríbenos directo por WhatsApp y te enviamos la guía.');
