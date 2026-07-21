@@ -6,12 +6,12 @@
 <title>Intervento — Lo que hoy te toma horas puede tomarte minutos</title>
 <meta name="description" content="Optimizamos tu operación y construimos tus herramientas con IA. Por entregas: cada una deja algo funcionando en tu negocio. No es un curso. Es tu negocio andando.">
 
-<!-- Open Graph — reemplaza TU_DOMINIO_AQUI por el dominio real antes de publicar -->
+<!-- Open Graph — dominio: getintervento.com -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://TU_DOMINIO_AQUI/">
+<meta property="og:url" content="https://getintervento.com/">
 <meta property="og:title" content="Intervento — Lo que hoy te toma horas puede tomarte minutos">
 <meta property="og:description" content="Optimizamos tu operación y construimos tus herramientas con IA. Por entregas: cada una deja algo funcionando en tu negocio. No es un curso. Es tu negocio andando.">
-<meta property="og:image" content="https://TU_DOMINIO_AQUI/og-image.jpg">
+<meta property="og:image" content="https://getintervento.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_PA">
@@ -36,7 +36,7 @@
     "name": "Panamá"
   },
   "telephone": "+507-6244-0096",
-  "url": "https://TU_DOMINIO_AQUI/"
+  "url": "https://getintervento.com/"
 }
 </script>
 
@@ -426,7 +426,7 @@ gtag('config', 'G-XXXXXXXXXX');
       <span class="chip">Autodiagnóstico gratis</span>
       <h3>Hay una tarea que te roba horas cada semana. Y todavía no sabes cuál.</h3>
       <p class="d">La mayoría de los negocios pierde tiempo en algo que la IA podría resolver — pero nadie les dijo cuál es. Esta guía gratis te lleva paso a paso a descubrir la tuya: la primera tarea que deberías automatizar, en 10 minutos y desde tu celular. Sin saber nada de IA.</p>
-      <form id="leadForm" action="https://formspree.io/f/TU_ID_AQUI" method="POST" novalidate>
+      <form id="leadForm" action="https://formspree.io/f/xqerllep" method="POST" novalidate>
         <input type="email" name="email" id="leadEmail" placeholder="tu@correo.com" required autocomplete="email" aria-label="Tu correo electrónico">
         <button class="btn" type="submit" style="box-shadow:none;">Quiero descubrir la mía</button>
       </form>
@@ -543,7 +543,7 @@ gtag('config', 'G-XXXXXXXXXX');
     document.querySelectorAll('[data-count]').forEach(function(el){ el.textContent = el.dataset.count + (el.dataset.suffix||''); });
   }
 
-  /* lead magnet — conectar proveedor: reemplaza TU_ID_AQUI por tu ID de Formspree (o cambia el action a tu proveedor de correo) */
+  /* lead magnet — conectado a Formspree */
   var lf = document.getElementById('leadForm');
   if (lf) {
     lf.addEventListener('submit', function(ev){
@@ -552,10 +552,6 @@ gtag('config', 'G-XXXXXXXXXX');
       if (!em.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)) {
         em.style.borderColor = 'var(--neon)';
         em.focus();
-        return;
-      }
-      if (lf.action.indexOf('TU_ID_AQUI') !== -1) {
-        alert('Formulario sin conectar: reemplaza TU_ID_AQUI en el código por tu ID de Formspree o el endpoint de tu proveedor de correo.');
         return;
       }
       fetch(lf.action, {
