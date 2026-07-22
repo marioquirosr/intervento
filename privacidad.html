@@ -20,9 +20,10 @@
   body{font-family:var(--sans);color:var(--tinta);background:var(--fondo);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;}
   .wrap{max-width:680px;margin:0 auto;padding:0 28px;}
   nav{padding:24px 28px;}
-  .logo{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-0.03em;line-height:1;text-decoration:none;color:var(--tinta);white-space:nowrap;position:relative;display:inline-block;padding-left:0.30em;}
-  .logo::before{content:"";position:absolute;left:0.05em;top:0.28em;height:0.94em;width:0.17em;border-radius:0.03em;background:currentColor;}
-  .logo::after{content:"";position:absolute;left:0.025em;top:0;width:0.22em;height:0.22em;border-radius:50%;background:var(--neon);}
+  .logo{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-0.01em;line-height:1;text-decoration:none;color:var(--tinta);white-space:nowrap;display:inline-flex;align-items:baseline;}
+  .logo .ig{position:relative;display:inline-block;width:0.16em;height:0.52em;margin-right:0.028em;}
+  .logo .igs{position:absolute;inset:0;background:currentColor;border-radius:0.035em;}
+  .logo .igd{position:absolute;left:50%;top:-0.30em;transform:translateX(-50%);width:0.20em;height:0.20em;border-radius:50%;background:var(--neon);}
   main{padding:40px 0 100px;}
   h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,40px);letter-spacing:-0.02em;margin-bottom:8px;}
   .fecha{color:var(--humo);font-size:13.5px;margin-bottom:44px;}
@@ -36,7 +37,14 @@
 </head>
 <body>
 
-<nav><a class="logo" href="index.html" aria-label="intervento">ntervento</a></nav>
+<template id="__bundler_thumbnail" data-bg-color="#0E0C10">
+  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <rect x="28" y="26" width="8" height="30" rx="1.5" fill="#FFFFFF"/>
+    <circle cx="32" cy="15" r="6.5" fill="#fe2f7e"/>
+  </svg>
+</template>
+
+<nav><a class="logo" href="index.html" aria-label="intervento"><span class="ig"><span class="igs"></span><span class="igd"></span></span>ntervento</a></nav>
 
 <main>
   <div class="wrap">
