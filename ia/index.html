@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>IA desde cero | Intervento</title>
-<meta name="description" content="Aprende a usar la IA desde cero en 25 minutos: 7 lecciones cortas, con ejemplos y ejercicios, gratis y sin registro.">
+<meta name="description" content="Aprende a usar la IA desde cero en 25 minutos: 7 lecciones cortas, con ejemplos y ejercicios. Gratis.">
 <link rel="canonical" href="https://getintervento.com/ia/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getintervento.com/ia/">
 <meta property="og:title" content="IA desde cero">
-<meta property="og:description" content="7 lecciones cortas para entender la IA y tener tu primera conversación con ella. Gratis y sin registro.">
+<meta property="og:description" content="7 lecciones cortas para entender la IA y tener tu primera conversación con ella. Gratis.">
 <meta property="og:image" content="https://getintervento.com/ia/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
@@ -228,6 +228,40 @@ a{color:inherit}
 .who p{font-size:16px;color:var(--mute);margin-top:4px}
 .levelnext{margin-top:16px;padding:16px 20px;border-radius:16px;background:var(--surf);font-size:17px}
 .levelnext b{font-family:var(--display)}
+.recap{margin-top:36px;padding:clamp(22px,4vw,36px);border-radius:24px;background:var(--ink);color:#fff}
+.recap h2{font-size:clamp(26px,4.6vw,38px)}
+.recap .d{margin-top:12px;color:var(--mute-d);max-width:50ch}
+.srt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sumrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.sumrow input[type=email]{flex:1 1 240px;min-width:0;min-height:52px;padding:0 18px;border-radius:999px;border:1.5px solid var(--line-d);background:#fff;color:var(--ink);font:inherit;font-size:17px}
+.sumrow input[type=email]:focus{outline:3px solid var(--mag);outline-offset:2px}
+.sumerr{margin-top:10px;color:#ff8fb7;font-size:16px}
+.sum-out{margin-top:24px;padding:clamp(18px,3vw,28px);border-radius:18px;background:#fff;color:var(--ink)}
+.sum-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:700;font-size:16px;color:var(--mute)}
+.sum-head img{height:22px;width:auto}
+.sum-list{margin:18px 0 0;padding-left:22px;display:grid;gap:12px;font-size:17px;line-height:1.5}
+.sum-list li::marker{color:var(--mag);font-weight:800}
+.sum-list b{font-family:var(--display)}
+.sum-rules{margin-top:20px;padding:16px 18px;border-radius:14px;background:var(--surf)}
+.sum-rules h3{font-size:18px}
+.sum-rules ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px;font-size:17px}
+.sum-where{margin-top:16px;font-size:16px;color:var(--mute)}
+.sum-where b{color:var(--ink)}
+.sum-foot{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:15px;color:var(--mute)}
+.sum-actions{margin-top:18px}
+.wacta{margin-top:16px;padding:clamp(20px,3.5vw,30px);border-radius:24px;background:var(--surf)}
+.wacta h3{font-size:clamp(22px,3.8vw,28px)}
+.wacta p{margin-top:8px;font-size:17px;color:var(--mute)}
+@media print{body.print-sum>*:not(#printarea){display:none!important}body.print-sum #printarea{display:block!important;padding:0;margin:0}}
+}
+.leadok{margin-top:20px;padding:16px 18px;border-radius:16px;background:var(--mag-soft);font-size:17px;line-height:1.5}
+.sub2{margin-top:22px;font-weight:600;font-size:17px;color:var(--mute)}
+.sumdet{margin-top:12px}
+.sumdet summary{cursor:pointer;font-family:var(--display);font-weight:700;min-height:44px;display:flex;align-items:center}
+.sumdet .sum-out{margin-top:6px;border:1px solid var(--line)}
+.visit{margin-top:16px;padding:clamp(20px,3.5vw,30px);border-radius:24px;border:1px solid var(--line)}
+.visit h3{font-size:clamp(22px,3.8vw,28px)}
+.visit p{margin-top:8px;font-size:17px;color:var(--mute)}
 footer{background:var(--ink);color:#fff;padding-block:28px;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
 footer .m{color:var(--mute-d)}
@@ -320,7 +354,7 @@ footer .m{color:var(--mute-d)}
     <div class="cta">
       <button class="btn mag" id="start">Empezar</button>
       <button class="btn ghost" id="resume" hidden></button>
-      <span class="meta">25 minutos · gratis · no tienes que registrarte</span>
+      <span class="meta">25 minutos · gratis</span>
     </div>
 
     <p class="tocpart">Parte 1 · Entender</p>
@@ -457,6 +491,34 @@ footer .m{color:var(--mute-d)}
 <section class="screen" id="m6" data-n="6" hidden>
   <div class="wrap">
     <div class="mhead"><span class="art"><svg><use href="#a6"/></svg></span><div><span class="num"></span><h2>Tu primera conversación</h2></div></div>
+    <div class="leadok">
+      <p><b>Listo. El resumen va en camino a tu correo.</b> Mientras te llega, empieza tu primera conversación aquí.</p>
+      <details class="sumdet"><summary>Ver mi resumen ahora</summary>
+      <div class="sum-out" id="sumout">
+        <div class="sum-head"><img id="sumlogo" alt="Intervento" height="22"><span>Resumen · IA desde cero</span></div>
+        <ol class="sum-list">
+          <li><b>¿Qué es la IA?</b> Programas que aprendieron viendo millones de ejemplos, no siguiendo instrucciones paso a paso. Como un niño que aprende qué es un perro.</li>
+          <li><b>Cómo responde.</b> Predice qué palabra sigue, como el autocompletar del celular pero gigante. No busca en internet, y sonar probable no es lo mismo que ser verdad.</li>
+          <li><b>Qué recuerda.</b> Cada conversación es una pizarra: una nueva empieza en blanco. Vuelve a contarle quién eres.</li>
+          <li><b>Cuándo dudar.</b> Es como un amigo muy seguro de sí mismo: habla con la misma firmeza cuando sabe y cuando improvisa. Verificar es tu parte.</li>
+          <li><b>Qué puede hacer por ti.</b> Un asistente nuevo, muy capaz, en su primer día: lee, resume, escribe y da ideas. No sabe nada de ti hasta que se lo cuentas.</li>
+          <li><b>Cómo hablarle.</b> Como a un taxista nuevo: dile adónde vas y corrige en el camino. No hay fórmulas ni palabras mágicas.</li>
+          <li><b>Tu primera conversación.</b> Cuéntale quién eres y qué necesitas, y sigue hablando hasta que quede como quieres.</li>
+        </ol>
+        <div class="sum-rules">
+          <h3>3 reglas para dudar</h3>
+          <ul>
+            <li>Revisa siempre cifras, fechas, nombres y leyes.</li>
+            <li>Pregúntale de dónde sacó un dato y compruébalo tú.</li>
+            <li>No le pegues contraseñas ni datos privados de otras personas.</li>
+          </ul>
+        </div>
+        <p class="sum-where"><b>Dónde practicar:</b> ChatGPT (chatgpt.com) y Gemini (gemini.google.com) se usan sin cuenta. Claude (claude.ai) pide crear una cuenta gratis.</p>
+        <p class="sum-foot">¿Te interesa un curso o algún servicio? WhatsApp +507 6244-0096 · getintervento.com · @intervento.pa</p>
+        <div class="row sum-actions"><button class="btn sm" type="button" id="sumprint">Guardar como PDF</button></div>
+      </div>
+      </details>
+    </div>
     <p class="analogy">Ahora el <b>asistente trabaja para ti.</b> Abre una conversación, cuéntale quién eres y qué necesitas, y sigue hablando con él hasta que quede como quieres.</p>
     <div class="panel">
       <p class="sub">1. Arma tu mensaje</p>
@@ -468,39 +530,35 @@ footer .m{color:var(--mute-d)}
       <div class="row"><button class="btn mag sm" id="m6copy">Copiar mensaje</button></div>
       <p class="toast" id="m6t" aria-live="polite"></p>
 
-      <p class="sub">2. Practica aquí antes de ir</p>
-      <p class="note" style="margin:0 0 10px">Este cuadro es solo para practicar. Deja el dedo presionado dentro y toca "Pegar" (en computadora: Ctrl+V, o Cmd+V en Mac). Luego toca "Enviar".</p>
-      <div class="practice">
-        <div class="chat" id="m6chat"></div>
-        <div class="compose">
-          <textarea id="m6try" aria-label="Cuadro de práctica" placeholder="Pega tu mensaje aquí"></textarea>
-          <button class="btn sm" id="m6send">Enviar</button>
-        </div>
-      </div>
-      <p class="note" id="m6pn" aria-live="polite"></p>
-
-      <p class="sub">3. Ahora hazlo de verdad</p>
-      <p class="note" style="margin:0 0 10px">Para empezar te recomendamos ChatGPT: se puede usar sin crear cuenta. Pega tu mensaje igual que en la práctica.</p>
+      <p class="sub">2. Ve a ChatGPT y pega tu mensaje</p>
+      <p class="note" style="margin:0 0 10px">Te recomendamos ChatGPT: se puede usar sin crear cuenta. Se abre en otra pestaña: deja el dedo presionado en el cuadro de texto y toca "Pegar" (en computadora: Ctrl+V, o Cmd+V en Mac).</p>
       <div class="row" style="margin-top:0"><a class="btn mag" id="m6open" href="https://chatgpt.com" target="_blank" rel="noopener">Abrir ChatGPT</a></div>
-      <p class="note">Otras opciones: <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> (también sin cuenta) o <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> (pide crear una cuenta gratis).</p>
+      <p class="note" id="m6alt">Otras opciones: <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> (también sin cuenta) o <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> (pide crear una cuenta gratis).</p>
       <p class="note" style="margin:18px 0 10px">Si te responde con preguntas, contéstale. Si algo no te gusta, díselo. Toca una frase para copiarla:</p>
       <div class="chips" id="m6ref"></div>
 
-      <p class="sub">4. ¿Cómo te fue?</p>
-      <div class="row" style="margin-top:0">
-        <button class="btn sm" id="m6ok">Funcionó</button>
-        <a class="btn ghost sm" id="m6stuck" href="https://wa.me/50762440096?text=Hola%2C%20hice%20IA%20desde%20cero%20y%20me%20trab%C3%A9%20en%20la%20lecci%C3%B3n%207.%20%C2%BFMe%20ayudas%3F" target="_blank" rel="noopener">No me salió: pedir ayuda por WhatsApp</a>
-      </div>
       <p class="note">¿Prefieres hacerlo después, en la computadora? <a id="m6later" href="https://wa.me/" target="_blank" rel="noopener">Mándate el mensaje a tu WhatsApp</a>.</p>
     </div>
+    <div class="wacta">
+      <h3>¿Quieres una sesión o algún servicio?</h3>
+      <p>Chatéanos por WhatsApp y te contamos las opciones.</p>
+      <div class="row" style="margin-top:18px"><a class="btn mag" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20IA%20desde%20cero%20y%20me%20interesa%20una%20sesi%C3%B3n%20o%20un%20servicio%20de%20Intervento." target="_blank" rel="noopener">Chatear por WhatsApp</a></div>
+    </div>
+    <div class="visit">
+      <h3>Conoce Intervento</h3>
+      <p>Ingeniería de negocios con IA: convertimos ideas y procesos en negocios que funcionan.</p>
+      <div class="row" style="margin-top:16px"><a class="btn" id="weblink" href="https://getintervento.com" target="_blank" rel="noopener">Visitar getintervento.com</a></div>
+    </div>
+    <div class="row" style="margin-top:24px"><button class="btn ghost sm" id="again">Repasar las lecciones</button></div>
   </div>
 </section>
 
-<!-- CIERRE -->
+<!-- CIERRE / PUERTA -->
 <section class="screen close" id="cierre" data-n="7" hidden>
   <div class="wrap">
-    <div class="eyebrow">Terminaste lo básico</div>
-    <h2 class="big">Ya hablaste con una IA. Ahora piérdele el miedo.</h2>
+    <div class="eyebrow" style="color:var(--mag)">¡Felicidades!</div>
+    <h2 class="big">Diste el primer paso.</h2>
+    <p class="sub2">Ya sabes esto:</p>
     <ul class="learned">
       <li>Qué es la IA y dónde ya la usas</li>
       <li>Que no piensa como una persona</li>
@@ -509,40 +567,23 @@ footer .m{color:var(--mute-d)}
       <li>Cuándo dudar de lo que dice</li>
       <li>Qué puede hacer por ti</li>
       <li>Que se le habla como a una persona</li>
-      <li>Cómo empezar una conversación</li>
     </ul>
 
-    <div class="session">
-      <div class="eyebrow" style="color:var(--mute-d)">El siguiente paso</div>
-      <h2 style="margin-top:12px">Sesión en vivo: IA para principiantes</h2>
-      <p class="d">Lo que viste aquí, con una persona al lado que responde tus dudas en el momento.</p>
-      <div class="facts">
-        <div><b>1 hora</b><span>En vivo</span></div>
-        <div><b>3 personas</b><span>Como máximo</span></div>
-        <div><b>$50</b><span>Por persona</span></div>
-      </div>
-      <ul class="gets">
-        <li>Preguntas todo lo que esta guía no te respondió.</li>
-        <li>Ves un caso real: cómo usamos IA para organizar ayuda después del terremoto del 9 de octubre.</li>
-        <li>Sales usándola con confianza, sin miedo a equivocarte.</li>
-      </ul>
-      <div class="row" style="margin-top:26px">
-        <a class="btn mag" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20IA%20desde%20cero%20y%20quiero%20reservar%20la%20sesi%C3%B3n%20para%20principiantes." target="_blank" rel="noopener">Reservar por WhatsApp</a>
-        <a class="btn ghost-d" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20IA%20desde%20cero.%20Av%C3%ADsame%20cuando%20haya%20una%20nueva%20fecha%20de%20la%20sesi%C3%B3n." target="_blank" rel="noopener">Avísame de la próxima fecha</a>
-      </div>
-      <p class="phone">¿Prefieres una sesión individual? $100. Fechas por WhatsApp al <b>+507 6244-0096</b></p>
+    <div class="recap">
+      <div class="eyebrow" style="color:var(--mute-d)">Falta tu primera conversación</div>
+      <h2 style="margin-top:12px">Recibe el resumen del curso</h2>
+      <p class="d" id="sumlead">Déjanos tu correo y te enviamos el resumen de las lecciones. Además, aquí mismo te damos las herramientas para iniciar tu primera conversación con una IA.</p>
+      <form id="sumform" novalidate>
+        <label class="srt" for="sumemail">Tu correo</label>
+        <div class="sumrow">
+          <input id="sumemail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+          <button class="btn mag" type="submit" id="sumbtn">Recibir el resumen</button>
+        </div>
+        <p class="sumerr" id="sumerr" role="alert" hidden></p>
+      </form>
     </div>
-
-    <div class="levelnext"><b>Después: nivel intermedio.</b> La IA aplicada a tu trabajo o a tu negocio, con tus propios casos.</div>
-
-    <div class="who">
-      <span class="av" aria-hidden="true">MQ</span>
-      <div>
-        <h3>Quién está detrás</h3>
-        <p>Mario Quiros, fundador de Intervento. Trabaja en marketing digital desde 2013, fue Head Regional de Contenidos para Samsung LATAM y Head de Marketing en Tafi. Intervento es miembro del Observatorio Panameño de IA.</p>
-      </div>
-    </div>
-    <div class="row" style="margin-top:24px"><button class="btn ghost sm" id="again">Repasar las lecciones</button></div>
+    <div class="row" style="margin-top:20px"><button class="btn ghost sm" id="gateback">Volver a la lección 6</button></div>
   </div>
 </section>
 </main>
@@ -571,7 +612,7 @@ footer .m{color:var(--mute-d)}
 
   function track(name,params){try{if(window.gtag)gtag('event',name,params||{})}catch(e){}}
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)track(a.id==='m6later'?'guardar_para_despues':'whatsapp_click',{cta:a.textContent.trim()})});
-  var ORDER=['inicio'].concat(L.map(function(x){return x.id})).concat(['cierre']);
+  var ORDER=['inicio'].concat(L.slice(0,TOTAL-1).map(function(x){return x.id})).concat(['cierre',L[TOTAL-1].id]);
   function idx(id){for(var i=0;i<TOTAL;i++)if(L[i].id===id)return i;return -1}
   var KEY='iadc-v3', state={done:{},at:'inicio'};
   function nudge(el){if(el)el.classList.add('nudge')}
@@ -592,17 +633,18 @@ footer .m{color:var(--mute-d)}
   function paintProg(cur){
     var n=idx(cur);
     prog.querySelectorAll('button').forEach(function(b,j){b.classList.toggle('done',!!state.done[L[j].id]);b.classList.toggle('here',j===n)});
-    $('where').textContent=n>=0?'Lección '+(n+1)+' de '+TOTAL:'Terminado';
+    $('where').textContent=n>=0?'Lección '+(n+1)+' de '+TOTAL:(cur==='cierre'?'Casi listo':'Terminado');
   }
   function go(id,noScroll){
     if(ORDER.indexOf(id)<0)id='inicio';
+    if(id===L[TOTAL-1].id&&!state.lead)id='cierre';
     ORDER.forEach(function(x){var el=$(x);el.hidden=x!==id;if(x===id){el.classList.remove('enter');void el.offsetWidth;el.classList.add('enter')}});
     $('top').hidden=id==='inicio';
     state.at=id;save();paintProg(id);document.querySelectorAll('.mfoot .nudge').forEach(function(x){x.classList.remove('nudge')});initNudge(id);
     try{history.replaceState(null,'','#'+id)}catch(e){}
     if(!noScroll)window.scrollTo(0,0);
   }
-  function nextLabel(id){var i=idx(id);return i<TOTAL-1?'Siguiente: '+L[i+1].name:'Ver el cierre'}
+  function nextLabel(id){var i=idx(id);return 'Siguiente: '+L[i+1].name}
   function mark(id){
     if(!state.done[id]){state.done[id]=1;track('leccion_completada',{leccion:id});save();paintProg(state.at)}
     var nb=$('next-'+id);if(nb){nb.classList.add('mag','nudge');nb.textContent=nextLabel(id)}
@@ -614,7 +656,7 @@ footer .m{color:var(--mute-d)}
     m3:['Toca el botón 1: haces la pregunta en la misma conversación.','Toca el botón 2: haces la misma pregunta en una conversación nueva.','Compara las dos respuestas.'],
     m4:['La IA te hace una pregunta. Tus respuestas posibles aparecen debajo del chat: toca una.','Responde la segunda pregunta igual.','Cuando te dé un borrador, pídele un cambio con otro toque.'],
     m5:['Lee las 3 respuestas de la IA.','Toca la que crees que es inventada.','Verás si acertaste y por qué. Son 2 rondas.'],
-    m6:['Arma tu mensaje (ya hay un ejemplo listo) y toca "Copiar mensaje".','Practica aquí mismo: pega el mensaje en el cuadro de práctica y toca "Enviar".','Abre ChatGPT y pega tu mensaje igual que en la práctica.','Vuelve aquí y cuéntanos cómo te fue.']
+    m6:['Arma tu mensaje (ya hay un ejemplo listo) y toca "Copiar mensaje".','Toca "Abrir ChatGPT" y pega tu mensaje.','Habla con la IA hasta que quede como quieres.']
   };
   Object.keys(HOW).forEach(function(id){
     var pn=$(id).querySelector('.panel'),d=mk('div','how'),t=mk('div','ht');
@@ -629,19 +671,54 @@ footer .m{color:var(--mute-d)}
     var f=mk('div','mfoot');
     var back=mk('button','btn ghost sm',i===0?'Volver al inicio':'Lección anterior');
     back.addEventListener('click',function(){go(ORDER[i])});
-    var nx=mk('button','btn sm',i<TOTAL-1?'Siguiente lección':'Ir al final');nx.id='next-'+l.id;
-    nx.addEventListener('click',function(){go(ORDER[i+2])});
-    f.appendChild(back);f.appendChild(nx);
+    f.appendChild(back);
+    if(i<TOTAL-1){var nx=mk('button','btn sm','Siguiente lección');nx.id='next-'+l.id;
+    nx.addEventListener('click',function(){go(ORDER[i+2])});f.appendChild(nx)}
     $(l.id).querySelector('.wrap').appendChild(f);
   });
   $('start').addEventListener('click',function(){track('guia_inicio');go(L[0].id)});
   $('again').addEventListener('click',function(){go(L[0].id)});
+  $('gateback').addEventListener('click',function(){go('m4')});
+  (function(){
+    var f=$('sumform'),em=$('sumemail'),err=$('sumerr'),btn=$('sumbtn');
+    function fail(m){err.textContent=m;err.hidden=false;em.focus()}
+    function enter(){
+      try{var im=document.querySelector('.top img');if(im)$('sumlogo').src=im.src}catch(e){}
+      state.lead=1;save();go(L[TOTAL-1].id);
+    }
+    if(state.lead){try{var im0=document.querySelector('.top img');if(im0)$('sumlogo').src=im0.src}catch(e){}}
+    f.addEventListener('submit',function(e){
+      e.preventDefault();err.hidden=true;
+      var v=em.value.trim();
+      if(!v){fail('Escribe tu correo para recibir el resumen.');return}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){fail('Revisa tu correo: parece que le falta algo, por ejemplo @ o el .com.');return}
+      btn.disabled=true;btn.textContent='Un momento…';
+      var hp=f.querySelector('[name=_gotcha]').value;
+      var done=function(ok){
+        btn.disabled=false;btn.textContent='Recibir el resumen';
+        if(ok&&typeof track==='function')track('resumen_enviado');
+        enter();
+      };
+      if(hp){done(false);return}
+      fetch('https://formspree.io/f/xqerllep',{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({email:v,source:'ia-desde-cero',_subject:'Resumen IA desde cero'})})
+        .then(function(r){done(r.ok)}).catch(function(){done(false)});
+    });
+    $('sumprint').addEventListener('click',function(){
+      var c=$('sumout').cloneNode(true);c.id='printarea';c.hidden=false;
+      var ac=c.querySelector('.sum-actions');if(ac)ac.remove();
+      document.body.appendChild(c);document.body.classList.add('print-sum');
+      var clean=function(){document.body.classList.remove('print-sum');if(c.parentNode)c.parentNode.removeChild(c);window.removeEventListener('afterprint',clean)};
+      window.addEventListener('afterprint',clean);
+      try{window.print()}catch(e){clean()}
+    });
+  })();
+
   document.querySelectorAll('a[href="#inicio"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();go('inicio')})});
   var resumeAt=state.at;
   if(resumeAt&&resumeAt!=='inicio'){
     var r=$('resume');r.hidden=false;
     var ri=idx(resumeAt);
-    r.textContent=ri>=0?'Seguir en la lección '+(ri+1):'Ver el cierre';
+    r.textContent=ri>=0?'Seguir en la lección '+(ri+1):'Seguir donde ibas';
     r.addEventListener('click',function(){go(resumeAt)});
   }
 
@@ -881,21 +958,14 @@ footer .m{color:var(--mute-d)}
     function fb(){var o=$('m6out');o.focus();o.select();$('m6t').textContent='No se pudo copiar solo. El texto quedó seleccionado: cópialo tú.'}
     try{navigator.clipboard.writeText(text).then(function(){$('m6t').textContent=msgOk},fb)}catch(e){fb()}
   }
-  $('m6copy').addEventListener('click',function(){copy($('m6out').value,'Copiado. Ahora pégalo en el cuadro de práctica de abajo.');nudge($('m6try'))});
-  $('m6send').addEventListener('click',function(){
-    var v=$('m6try').value.trim(),ch=$('m6chat');
-    if(!v){$('m6pn').textContent='Todavía está vacío. Primero toca "Copiar mensaje" arriba. Luego deja el dedo presionado en el cuadro y toca "Pegar".';nudge($('m6try'));return}
-    ch.textContent='';msg(ch,'you',v);
-    msg(ch,'ai','¡Claro, te ayudo! Antes de empezar, cuéntame un poco más: ¿para cuándo lo necesitas y hay algo que deba evitar?');
-    $('m6try').value='';
-    $('m6pn').textContent='¡Perfecto, así se hace! La IA de verdad también suele hacerte preguntas antes de responder. Ahora sigue con el paso 3.';
-    nudge($('m6open'));
-  });
+  $('m6copy').addEventListener('click',function(){copy($('m6out').value,'Copiado. Ahora toca "Abrir ChatGPT" y pégalo allá.');nudge($('m6open'))});
   ['Hazlo más corto.','No entendí, explícamelo más simple.','Dame 3 opciones distintas.','Eso no es lo que necesito. Te explico mejor:'].forEach(function(p){
     var b=mk('button','chip',p);b.addEventListener('click',function(){copy(p,'Copiado: "'+p+'"')});$('m6ref').appendChild(b);
   });
-  $('m6ok').addEventListener('click',function(){mark('m6');go('cierre')});
-  $('m6stuck').addEventListener('click',function(){mark('m6');setTimeout(function(){go('cierre')},400)});
+  function leave(){mark('m6')}
+  $('m6open').addEventListener('click',leave);
+  $('m6alt').querySelectorAll('a').forEach(function(a){a.addEventListener('click',leave)});
+  $('weblink').addEventListener('click',function(){if(typeof track==='function')track('visita_intervento')});
 
   /* arranque */
   Object.keys(state.done).forEach(function(id){var nb=$('next-'+id);if(nb){nb.classList.add('mag');nb.textContent=nextLabel(id)}});
