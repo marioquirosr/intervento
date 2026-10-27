@@ -11,6 +11,9 @@
 <meta property="og:title" content="IA desde cero">
 <meta property="og:description" content="7 lecciones cortas para entender la IA y tener tu primera conversación con ella. Gratis.">
 <meta property="og:image" content="https://getintervento.com/ia/og.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1RHJ39L3EB"></script>
@@ -709,6 +712,17 @@ html{scroll-behavior:smooth}
 .pfoot a,.pfoot button{background:none;border:0;padding:0;color:#e3cfd8;font-size:14.5px;font-weight:500;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 .pfoot a:hover,.pfoot button:hover{color:#fff}
 
+/* cierre: correo y siguientes pasos */
+.gdone .lm{display:block;color:var(--mag)}
+.gdone h1{font-size:clamp(32px,4.4vw,52px);line-height:1.05;letter-spacing:-.035em;margin-top:14px;color:#fff;max-width:18ch}
+.gdone .st{font-size:clamp(16px,1.5vw,18px);line-height:1.65;color:#cfc9d4;margin-top:16px;max-width:56ch}
+.gdone .sumdet{margin-top:22px}
+.gdone .sumdet[open]{background:#fff;color:var(--ink);border-radius:16px;padding:16px}
+.nexth{margin-top:clamp(40px,6vw,64px);padding-top:clamp(32px,4vw,44px);border-top:1px solid rgba(255,255,255,.12)}
+.nexth h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.03em;margin-top:10px;color:#fff}
+.gstage .stin:has(.gdone:not([hidden])){max-width:1000px}
+.gdone .sumdet summary{color:var(--ink)}.gdone .sumdet[open] summary{border-color:var(--line)}
+
 </style>
 </head>
 <body>
@@ -962,16 +976,17 @@ html{scroll-behavior:smooth}
 
 <section class="screen" id="cierre" hidden>
   <div class="stage gstage">
-    <div class="stin gate">
+    <div class="stin">
+    <div class="gate" id="gform">
       <div class="gh">
         <span class="eyebrow" style="color:var(--mag)">¡Felicidades!</span>
-        <h1>Diste el primer paso.</h1>
-        <p class="scene">Ya sabes cómo es tu asistente. Falta lo mejor: tu primer encargo.</p>
+        <h1>Completaste el curso.</h1>
+        <p class="scene">Ya sabes qué es la IA, cómo piensa, cuándo creerle y cómo hablarle. Y ya tuviste tu primera conversación con una.</p>
       </div>
       <div class="recap">
-        <div class="eyebrow" style="color:var(--mute-d)">Falta tu primera conversación</div>
-        <h2 style="margin-top:12px">Recibe el resumen del curso</h2>
-        <p class="d" id="sumlead">Déjanos tu correo y te enviamos el resumen de las lecciones. Además, aquí mismo te damos las herramientas para iniciar tu primera conversación con una IA.</p>
+        <div class="eyebrow" style="color:var(--mute-d)">Tu resumen</div>
+        <h2 style="margin-top:12px">Recibe y descarga el resumen del curso</h2>
+        <p class="d" id="sumlead">Déjanos tu correo: te enviamos el resumen con todo lo que aprendiste y además lo puedes descargar aquí mismo.</p>
         <form id="sumform" novalidate>
           <label class="srt" for="sumemail">Tu correo</label>
           <div class="sumrow">
@@ -983,33 +998,11 @@ html{scroll-behavior:smooth}
         </form>
       </div>
     </div>
-  </div>
-<div class="below">
-      <div class="gl">
-        <p class="sub2">Ya sabes esto:</p>
-        <ul class="learned">
-          <li>Qué es la IA y dónde ya la usas</li>
-          <li>Que no piensa como una persona</li>
-          <li>Que predice, no busca</li>
-          <li>Que cada conversación empieza en blanco</li>
-          <li>Cuándo dudar de lo que dice</li>
-          <li>Qué puede hacer por ti</li>
-          <li>Que se le habla como a una persona</li>
-        </ul>
-      </div>
-  </div>
-</section>
-
-<section class="screen" id="m6" hidden>
-  <div class="stage mod2">
-    <div class="stin">
-    <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Práctica"><i>2</i><span>Práctica</span></button><button class="chap" type="button" role="tab" title="Ir a: Siguientes pasos"><i>3</i><span>Siguientes pasos</span></button></div>
-    <div class="stp">
-      <span class="eyebrow lm">Lección 7 de 7 · 5 min</span>
-      <h1>Tu primera conversación</h1>
-      <p class="st">Hora de la verdad. Tu asistente ya está en su escritorio y tú tienes un encargo real. Abre una conversación, cuéntale quién eres y qué necesitas, y sigue hablando con él hasta que quede como quieres.</p>
-      <div class="leadok"><p><b>Listo. El resumen va en camino a tu correo.</b> Mientras te llega, empieza tu primera conversación aquí.</p>
-        <details class="sumdet"><summary>Ver mi resumen ahora</summary>
+    <div class="gdone" id="gdone" hidden>
+      <span class="eyebrow lm">Curso completado</span>
+      <h1>Listo. Tu resumen va en camino.</h1>
+      <p class="st">Revisa tu correo en unos minutos. Si no te llega, ábrelo y descárgalo aquí.</p>
+      <details class="sumdet"><summary>Ver y descargar mi resumen</summary>
         <div class="sum-out" id="sumout">
         <div class="sum-head"><img id="sumlogo" alt="Intervento" height="22"><span>Resumen · IA desde cero</span></div>
         <ol class="sum-list">
@@ -1033,11 +1026,45 @@ html{scroll-behavior:smooth}
         <p class="sum-foot">¿Te interesa un curso o algún servicio? WhatsApp +507 6244-0096 · getintervento.com · @intervento.pa</p>
         <div class="row sum-actions"><button class="btn sm" type="button" id="sumprint">Guardar como PDF</button></div>
       </div>
-        </details>
+      </details>
+      <div class="nexth"><span class="eyebrow lm">Siguientes pasos</span><h2>¿Y ahora qué?</h2><p class="st">Ya diste el primer paso. Elige cómo quieres seguir.</p></div>
+      <div class="paths">
+        <a class="bc hl" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20reservar%20una%20clase%20individual%20%28%2450%20la%20hora%29." target="_blank" rel="noopener"><span class="k">Quiero profundizar</span><b>Clase individual</b><span class="price">$50 <small>la hora</small></span><span class="d">Uno a uno, a tu ritmo. Desde lo básico hasta armar juntos una herramienta simple para tu negocio.</span><span class="go">Reservar mi clase →</span></a>
+        <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20aprender%20en%20grupo.%20%C2%BFCu%C3%A1ndo%20es%20el%20pr%C3%B3ximo%20taller%3F" target="_blank" rel="noopener"><span class="k2">Quiero aprender en grupo</span><b>Talleres</b><span class="d">Cupos limitados con emprendedores, creadores y dueños de negocio. Sales con al menos una tarea real resuelta con IA ese mismo día.</span><span class="go">Preguntar por el próximo cupo →</span></a>
+        <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero.%20Ya%20tengo%20una%20idea%20clara%20y%20quiero%20que%20construyamos%20algo%20juntos.%20Quiero%20cotizar." target="_blank" rel="noopener"><span class="k2">Ya la tengo clara</span><b>Construyamos algo juntos</b><span class="d">Una herramienta, una automatización o tu idea funcionando. Cuéntanos qué necesitas y te enviamos una cotización.</span><span class="go">Contactar para cotizar →</span></a>
       </div>
+      <div class="pfoot"><a id="weblink" href="https://getintervento.com" target="_blank" rel="noopener">Conoce Intervento</a><button type="button" id="again">Repasar las lecciones</button></div>
+    </div>
+    </div>
+  </div>
+<div class="below" id="gbelow">
+      <div class="gl">
+        <p class="sub2">Ya sabes esto:</p>
+        <ul class="learned">
+          <li>Qué es la IA y dónde ya la usas</li>
+          <li>Que no piensa como una persona</li>
+          <li>Que predice, no busca</li>
+          <li>Que cada conversación empieza en blanco</li>
+          <li>Cuándo dudar de lo que dice</li>
+          <li>Qué puede hacer por ti</li>
+          <li>Que se le habla como a una persona</li>
+          <li>Cómo tener tu primera conversación con una IA</li>
+        </ul>
+      </div>
+  </div>
+</section>
+
+<section class="screen" id="m6" hidden>
+  <div class="stage mod2">
+    <div class="stin">
+    <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Prueba final"><i>2</i><span>Prueba final</span></button></div>
+    <div class="stp">
+      <span class="eyebrow lm">Lección 7 de 7 · 5 min</span>
+      <h1>Tu primera conversación</h1>
+      <p class="st">Hora de la verdad. Tu asistente ya está en su escritorio y tú tienes un encargo real. Abre una conversación, cuéntale quién eres y qué necesitas, y sigue hablando con él hasta que quede como quieres.</p>
     </div>
     <div class="stp" hidden><div class="panel">
-      <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Práctica</p>
+      <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba final</p>
       <p class="sub">1. Arma tu mensaje</p>
       <p class="note" style="margin:0 0 10px">Toca una tarea y los campos de abajo se llenan solos. Cámbialos por lo tuyo si quieres.</p>
       <div class="chips" id="m6tasks"></div>
@@ -1055,17 +1082,6 @@ html{scroll-behavior:smooth}
       <div class="chips" id="m6ref"></div>
       <p class="note">¿Prefieres hacerlo después, en la computadora? <a id="m6later" href="https://wa.me/" target="_blank" rel="noopener">Mándate el mensaje a tu WhatsApp</a>.</p>
     </div></div>
-    <div class="stp" hidden>
-      <span class="eyebrow lm">Terminaste el curso</span>
-      <h1>¿Y ahora qué?</h1>
-      <p class="st">Ya diste el primer paso. Elige cómo quieres seguir.</p>
-      <div class="paths">
-        <a class="bc hl" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20reservar%20una%20clase%20individual%20%28%2450%20la%20hora%29." target="_blank" rel="noopener"><span class="k">Quiero profundizar</span><b>Clase individual</b><span class="price">$50 <small>la hora</small></span><span class="d">Uno a uno, a tu ritmo. Desde lo básico hasta armar juntos una herramienta simple para tu negocio.</span><span class="go">Reservar mi clase →</span></a>
-        <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20aprender%20en%20grupo.%20%C2%BFCu%C3%A1ndo%20es%20el%20pr%C3%B3ximo%20taller%3F" target="_blank" rel="noopener"><span class="k2">Quiero aprender en grupo</span><b>Talleres</b><span class="d">Cupos limitados con emprendedores, creadores y dueños de negocio. Sales con al menos una tarea real resuelta con IA ese mismo día.</span><span class="go">Preguntar por el próximo cupo →</span></a>
-        <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero.%20Ya%20tengo%20una%20idea%20clara%20y%20quiero%20que%20construyamos%20algo%20juntos.%20Quiero%20cotizar." target="_blank" rel="noopener"><span class="k2">Ya la tengo clara</span><b>Construyamos algo juntos</b><span class="d">Una herramienta, una automatización o tu idea funcionando. Cuéntanos qué necesitas y te enviamos una cotización.</span><span class="go">Contactar para cotizar →</span></a>
-      </div>
-      <div class="pfoot"><a id="weblink" href="https://getintervento.com" target="_blank" rel="noopener">Conoce Intervento</a><button type="button" id="again">Repasar las lecciones</button></div>
-    </div>
     </div>
   </div>
 </section>
@@ -1105,7 +1121,7 @@ html{scroll-behavior:smooth}
 
   function track(name,params){try{if(window.gtag)gtag('event',name,params||{})}catch(e){}}
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)track(a.id==='m6later'?'guardar_para_despues':'whatsapp_click',{cta:a.textContent.trim()})});
-  var ORDER=['inicio'].concat(L.slice(0,TOTAL-1).map(function(x){return x.id})).concat(['cierre',L[TOTAL-1].id]);
+  var ORDER=['inicio'].concat(L.map(function(x){return x.id})).concat(['cierre']);
   function idx(id){for(var i=0;i<TOTAL;i++)if(L[i].id===id)return i;return -1}
   var KEY='iadc-v4', state={done:{},at:'inicio'};
   function nudge(el){if(el)el.classList.add('nudge')}
@@ -1156,7 +1172,7 @@ html{scroll-behavior:smooth}
   function paint(cur){
     var n=0;
     L.forEach(function(l,i){
-      var o=lbs[l.id],d=!!state.done[l.id],lock=(i===TOTAL-1&&!state.lead);
+      var o=lbs[l.id],d=!!state.done[l.id],lock=false;
       o.b.classList.toggle('done',d);o.b.classList.toggle('cur',l.id===cur);o.b.classList.toggle('lock',lock&&!d);
       o.st.innerHTML=d?CHECK:(lock?LOCK:'');
       o.m.textContent=l.min+' min'+(lock?' · se desbloquea con tu correo':'');
@@ -1173,9 +1189,9 @@ html{scroll-behavior:smooth}
   var NEXT={},PREV={};
   L.forEach(function(l,i){
     PREV[l.id]=i?L[i-1].id:'inicio';
-    if(i<TOTAL-1)NEXT[l.id]=i===TOTAL-2?'cierre':L[i+1].id;
+    NEXT[l.id]=i<TOTAL-1?L[i+1].id:'cierre';
   });
-  PREV.cierre=L[TOTAL-2].id;
+  PREV.cierre=L[TOTAL-1].id;
   function setDrawer(open){
     $('side').classList.toggle('open',open);$('scrim').hidden=!open;$('menubtn').setAttribute('aria-expanded',open?'true':'false');
     if(open){var f=$('side').querySelector('.lb.cur')||$('side').querySelector('.lb');if(f)f.focus()}
@@ -1185,9 +1201,9 @@ html{scroll-behavior:smooth}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')setDrawer(false)});
   function go(id,noScroll){
     if(ORDER.indexOf(id)<0)id='inicio';
-    if(id===L[TOTAL-1].id&&!state.lead)id='cierre';
     ORDER.forEach(function(x){var el=$(x);el.hidden=x!==id;if(x===id){el.classList.remove('enter');void el.offsetWidth;el.classList.add('enter')}});
     var sgx=$(id).querySelector('.stage');if(sgx&&sgx._show)sgx._show(0);
+    if(id==='cierre')showGate();
     var home=id==='inicio';
     $('course').hidden=home;
     if(!home)$('inicio').hidden=true;
@@ -1204,10 +1220,12 @@ html{scroll-behavior:smooth}
     if(k>0){pb.textContent='← Atrás';pb.onclick=function(){sg._show(k-1,1)}}
     else{pb.textContent=id==='cierre'?'← Volver':'← Anterior';pb.onclick=function(){go(PREV[id])}}
     if(k<n-1){nb.hidden=false;$('nbt').textContent='Continuar';$('nxl').textContent='';nb.classList.add('mag');nb.onclick=function(){sg._show(k+1,1)}}
+    else if(nx==='cierre'){nb.hidden=false;$('nbt').textContent='Terminar el curso';$('nxl').textContent='';nb.classList.add('mag');nb.onclick=function(){mark(id);go(nx)}}
     else if(nx){nb.hidden=false;$('nbt').textContent='Siguiente lección';$('nxl').textContent=': '+L[i+1].name;nb.onclick=function(){mark(id);go(nx)};if(state.done[id])nb.classList.add('mag')}
-    else{nb.hidden=true;if(id===L[TOTAL-1].id&&k===n-1&&n>1)mark(id)}
-    $('cnt').textContent=i>=0?'Lección '+(i+1)+' de '+TOTAL+(n>1?' · Parte '+(k+1)+' de '+n:''):'Último paso';
+    else{nb.hidden=true}
+    $('cnt').textContent=i>=0?'Lección '+(i+1)+' de '+TOTAL+(n>1?' · Parte '+(k+1)+' de '+n:''):'Curso completado';
   }
+  function showGate(){var d=!!state.lead;$('gform').hidden=d;$('gdone').hidden=!d;$('gbelow').hidden=d}
   var tT;function toast(t){var e=$('toastc');$('toasttxt').textContent=t;e.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){e.classList.remove('on')},2400)}
   function nextLabel(id){var i=idx(id);return 'Siguiente: '+L[i+1].name}
   function mark(id){
@@ -1223,7 +1241,7 @@ html{scroll-behavior:smooth}
     function fail(m){err.textContent=m;err.hidden=false;em.focus()}
     function enter(){
       try{var im=document.querySelector('.top img');if(im)$('sumlogo').src=im.src}catch(e){}
-      state.lead=1;save();go(L[TOTAL-1].id);
+      state.lead=1;save();showGate();window.scrollTo(0,0);
     }
     if(state.lead){try{var im0=document.querySelector('.top img');if(im0)$('sumlogo').src=im0.src}catch(e){}}
     f.addEventListener('submit',function(e){
