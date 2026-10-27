@@ -185,6 +185,21 @@ gtag('config', 'G-1RHJ39L3EB');
   @media (max-width:680px){.fases{grid-template-columns:1fr;}}
 
   /* portafolio */
+  .lcs{display:grid;gap:16px;margin-top:36px;}
+  @media(min-width:900px){.lcs{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  .lc{display:flex;flex-direction:column;gap:8px;padding:28px 26px;border-radius:20px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--tinta);text-decoration:none;transition:transform .15s,border-color .2s,background .2s;}
+  .lc:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.07);}
+  .lc .rl{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--humo);font-weight:500;}
+  .lc .pill{align-self:flex-start;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--neon);padding:5px 12px;border-radius:999px;}
+  .lc h3{font-size:21px;letter-spacing:-0.01em;margin-top:4px;}
+  .lc p{font-size:14.5px;color:var(--humo);line-height:1.6;}
+  .lc .price{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-.02em;color:var(--neon);line-height:1.1;}
+  .lc .price small{font-family:var(--sans);font-size:14px;font-weight:500;color:#6e686c;}
+  .lc .go{margin-top:auto;padding-top:18px;font-size:14.5px;font-weight:600;color:#fff;}
+  .lc.hl{background:#fff;border-color:#fff;color:#121014;}
+  .lc.hl:hover{background:#fff;}
+  .lc.hl p{color:#6e686c;}
+  .lc.hl .go{color:var(--neon);}
   .prods{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px;}
   .prod{background:var(--panel);border-radius:16px;padding:32px 30px;display:flex;flex-direction:column;}
   .prod .rl{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--humo);font-weight:500;}
@@ -479,25 +494,26 @@ gtag('config', 'G-1RHJ39L3EB');
     <span class="chip">Aprende IA</span>
     <h2 style="margin-top:22px;">Aprende IA con nosotros.</h2>
     <p class="sub">Para emprendedores, creadores de contenido, dueños de negocio y equipos. Desde entender qué es la IA hasta usarla para ganar horas en tu día a día. Nada complicado, cero jerga.</p>
-    <div class="prods tri">
-      <div class="prod">
-        <p class="rl">Uno a uno</p>
+    <div class="lcs">
+      <a class="lc hl" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20reservar%20una%20clase%20individual%20de%20IA%20%28%2450%20la%20hora%29." target="_blank" rel="noopener">
+        <span class="pill">Uno a uno</span>
         <h3>Clase individual</h3>
+        <span class="price">$50 <small>la hora</small></span>
         <p>Una hora, un tema, ritmo tuyo. Desde una intro básica a la IA hasta armar juntos una herramienta simple para tu negocio.</p>
-        <p class="plinks"><a class="link" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20una%20clase%201%20a%201%20de%20IA.">Reservar mi clase</a></p>
-      </div>
-      <div class="prod">
-        <p class="rl">Grupos pequeños</p>
+        <span class="go">Reservar mi clase →</span>
+      </a>
+      <a class="lc" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20un%20cupo%20para%20el%20pr%C3%B3ximo%20taller%20de%20IA." target="_blank" rel="noopener">
+        <span class="rl">Grupos pequeños</span>
         <h3>Talleres</h3>
         <p>Cupos limitados con emprendedores, creadores y dueños de negocio. Aprendes haciendo: sales con al menos una tarea real resuelta con IA ese mismo día.</p>
-        <p class="plinks"><a class="link" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20un%20cupo%20para%20el%20pr%C3%B3ximo%20taller%20de%20IA.">Preguntar por el próximo cupo</a></p>
-      </div>
-      <div class="prod">
-        <p class="rl">Empresas, gremios y eventos</p>
+        <span class="go">Preguntar por el próximo cupo →</span>
+      </a>
+      <a class="lc" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20llevar%20una%20conferencia%20o%20sesi%C3%B3n%20de%20IA%20a%20mi%20equipo%20o%20evento." target="_blank" rel="noopener">
+        <span class="rl">Empresas, gremios y eventos</span>
         <h3>Conferencias y sesiones para equipos</h3>
         <p>Charlas para eventos, universidades y gremios, o una sesión diseñada para tu equipo. Desde "qué es la IA" hasta cómo usarla para ganar agilidad en el día a día.</p>
-        <p class="plinks"><a class="link" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20llevar%20una%20conferencia%20o%20sesi%C3%B3n%20de%20IA%20a%20mi%20equipo%20o%20evento.">Llevar una a mi equipo o evento</a></p>
-      </div>
+        <span class="go">Llevar una a mi equipo o evento →</span>
+      </a>
     </div>
   </div>
 </section>
