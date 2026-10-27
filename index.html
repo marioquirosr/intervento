@@ -327,11 +327,11 @@ gtag('config', 'G-1RHJ39L3EB');
   .mom[aria-selected="true"] .mom-bar{opacity:1;}
   .mom-bar i{display:block;width:100%;height:0;background:#fe2f7e;}
   .mom[aria-selected="true"] .mom-bar i{height:100%;}
-  .moments.auto .mom[aria-selected="true"] .mom-bar i{height:0;animation:momfill 7s linear forwards;}
+  .moments.auto .mom[aria-selected="true"] .mom-bar i{height:0;animation:momfill 4s linear forwards;}
   .moments.paused .mom-bar i{animation-play-state:paused !important;}
   @keyframes momfill{to{height:100%;}}
   .mom-stage{position:relative;aspect-ratio:1/1;border-radius:22px;overflow:hidden;background:#1A171C;box-shadow:0 30px 80px -30px rgba(254,47,126,.35);}
-  .mom-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s ease, transform 7s ease-out;}
+  .mom-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s ease, transform 4s ease-out;}
   .mom-stage img.on{opacity:1;transform:scale(1);}
   @media (prefers-reduced-motion: reduce){.mom-stage img{transition:opacity .2s;transform:none!important;}.mom-cap{transition:none;}}
   @media (max-width:860px){
@@ -762,7 +762,7 @@ gtag('config', 'G-1RHJ39L3EB');
   (function(){
     var box=document.querySelector('.moments'); if(!box) return;
     var tabs=[].slice.call(box.querySelectorAll('.mom')), imgs=[].slice.call(box.querySelectorAll('.mom-stage img'));
-    var cur=0, timer=null, DUR=7000, user=false;
+    var cur=0, timer=null, DUR=4000, user=false;
     function show(i){
       cur=(i+tabs.length)%tabs.length;
       tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===cur?'true':'false');t.tabIndex=k===cur?0:-1;});
