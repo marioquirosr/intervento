@@ -296,18 +296,18 @@ gtag('config', 'G-1RHJ39L3EB');
   .modal-close:hover{border-color:var(--neon);}
   @media (max-width:480px){.modal{padding:28px;}}
 
-  /* variante gris claro — se diferencia del blanco y del carbón */
-  section.gris{background:#F4F1F3;color:#121014;}
-  section.gris .chip{color:#5D575B;border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.02);}
-  section.gris h2,section.gris h3{color:#121014;}
-  section.gris .sub{color:#5D575B;max-width:760px;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
-  section.gris .link{color:#121014;}
-  section.gris .link:hover{color:#fe2f7e;}
-  section.gris .hito{background:#FFFFFF;border-color:rgba(0,0,0,.08);}
-  section.gris .hito .rl{color:#fe2f7e;}
-  section.gris .hito p{color:#5D575B;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
-  section.gris .hitos{grid-template-columns:repeat(2,1fr);}
-  @media (max-width:700px){section.gris .hitos{grid-template-columns:1fr;}}
+  /* compromiso: fondo negro, tarjetas en grafito con acento magenta */
+  section.negro{background:#0E0C10;color:#FFFFFF;}
+  section.negro .chip{color:#C9C1C6;border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04);}
+  section.negro .lead{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.35;color:#FFFFFF;margin-top:22px;max-width:640px;}
+  section.negro .lead a{color:#FFFFFF;text-decoration:none;border-bottom:2px solid #fe2f7e;}
+  section.negro .sub{color:#C9C1C6;max-width:640px;margin-top:14px;}
+  section.negro .link{color:#FFFFFF;}
+  section.negro .hito{background:#24202A;border:0;border-top:3px solid #fe2f7e;}
+  section.negro .hito .rl{color:#fe2f7e;}
+  section.negro .hito p{color:#D6CFD3;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
+  section.negro .hitos{grid-template-columns:repeat(2,1fr);}
+  @media (max-width:700px){section.negro .hitos{grid-template-columns:1fr;} section.negro .lead{font-size:19px;}}
 
   /* lead magnet en tema claro */
 
@@ -466,11 +466,13 @@ gtag('config', 'G-1RHJ39L3EB');
   </div>
 </section>
 
-<section id="compromiso" class="gris">
+<section id="compromiso" class="negro">
   <div class="wrap">
     <span class="chip">Compromiso</span>
     <h2 style="margin-top:22px;">La IA bien usada, es para todos.</h2>
-    <p class="sub">Creemos en un uso ético y responsable de la IA — y en que el acceso a ella no dependa de quién ya sabe usarla. Por eso somos miembros del <a class="link" href="https://www.observatorioia.com.pa/" target="_blank" rel="noopener">Observatorio Panameño de Inteligencia Artificial (OPIA)</a>, desde donde trabajamos de cerca con el gobierno, instituciones como el <a class="link" href="https://www.inadeh.edu.pa/" target="_blank" rel="noopener">INADEH</a> y la Comisión Nacional de Competencias Laborales (CONACO), y con jóvenes, para llevar ese estándar a la práctica.</p>
+    <p class="lead">Somos miembros del <a href="https://www.observatorioia.com.pa/" target="_blank" rel="noopener">Observatorio Panameño de Inteligencia Artificial (OPIA)</a>.</p>
+    <p class="sub">El OPIA monitorea, investiga y conecta a quienes construyen la IA en Panamá, para que el ecosistema crezca de forma ética, transparente y al servicio de la sociedad.</p>
+    <p class="sub">Desde ahí tendemos puentes entre gobierno, academia, sector privado y sociedad civil, y llevamos la conversación a los jóvenes: la generación que más va a convivir con esta tecnología.</p>
     <div class="hitos">
       <figure class="hito">
         <img src="opia-innovanation.jpg" alt="Mario Quirós dando el taller Copilotos de IA en InnovaNation The Next Human 2026, frente a la diapositiva Tú eres el piloto, la IA es tu copiloto">
