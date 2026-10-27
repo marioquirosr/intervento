@@ -309,6 +309,37 @@ gtag('config', 'G-1RHJ39L3EB');
   section.negro .hitos{grid-template-columns:repeat(2,1fr);}
   @media (max-width:700px){section.negro .hitos{grid-template-columns:1fr;} section.negro .lead{font-size:19px;}}
 
+  /* compromiso: escenario interactivo de momentos */
+  section.negro .sub{max-width:680px;}
+  .moments{display:grid;grid-template-columns:5fr 7fr;gap:40px;margin-top:48px;align-items:center;}
+  .mom-list{display:flex;flex-direction:column;}
+  .mom{all:unset;box-sizing:border-box;cursor:pointer;display:block;position:relative;padding:22px 0 22px 22px;border-left:1px solid rgba(255,255,255,.12);transition:border-color .3s ease;}
+  .mom:focus-visible{outline:2px solid #fff;outline-offset:4px;border-radius:4px;}
+  .mom-cat{display:block;font-size:13px;color:#8F878D;margin-bottom:4px;transition:color .3s ease;}
+  .mom-tit{display:block;font-family:var(--display);font-weight:700;font-size:24px;line-height:1.2;letter-spacing:-.01em;color:#6E676C;transition:color .3s ease;}
+  .mom:hover .mom-tit{color:#C9C1C6;}
+  .mom-cap{display:block;font-size:15px;line-height:1.6;color:#C9C1C6;max-height:0;opacity:0;overflow:hidden;transition:max-height .5s ease, opacity .4s ease, margin .4s ease;}
+  .mom[aria-selected="true"]{border-left-color:transparent;}
+  .mom[aria-selected="true"] .mom-cat{color:#fe2f7e;}
+  .mom[aria-selected="true"] .mom-tit{color:#fff;}
+  .mom[aria-selected="true"] .mom-cap{max-height:200px;opacity:1;margin-top:10px;}
+  .mom-bar{position:absolute;left:-1px;top:0;bottom:0;width:3px;background:rgba(255,255,255,.12);opacity:0;}
+  .mom[aria-selected="true"] .mom-bar{opacity:1;}
+  .mom-bar i{display:block;width:100%;height:0;background:#fe2f7e;}
+  .mom[aria-selected="true"] .mom-bar i{height:100%;}
+  .moments.auto .mom[aria-selected="true"] .mom-bar i{height:0;animation:momfill 7s linear forwards;}
+  .moments.paused .mom-bar i{animation-play-state:paused !important;}
+  @keyframes momfill{to{height:100%;}}
+  .mom-stage{position:relative;aspect-ratio:1/1;border-radius:22px;overflow:hidden;background:#1A171C;box-shadow:0 30px 80px -30px rgba(254,47,126,.35);}
+  .mom-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .7s ease, transform 7s ease-out;}
+  .mom-stage img.on{opacity:1;transform:scale(1);}
+  @media (prefers-reduced-motion: reduce){.mom-stage img{transition:opacity .2s;transform:none!important;}.mom-cap{transition:none;}}
+  @media (max-width:860px){
+    .moments{grid-template-columns:1fr;gap:28px;}
+    .mom-stage{order:-1;aspect-ratio:4/3;}
+    .mom-tit{font-size:20px;}
+  }
+
   /* lead magnet en tema claro */
 
   /* sticky CTA móvil */
@@ -471,37 +502,40 @@ gtag('config', 'G-1RHJ39L3EB');
     <span class="chip">Compromiso</span>
     <h2 style="margin-top:22px;">La IA bien usada, es para todos.</h2>
     <p class="lead">Somos miembros del <a href="https://www.observatorioia.com.pa/" target="_blank" rel="noopener">Observatorio Panameño de Inteligencia Artificial (OPIA)</a>.</p>
-    <p class="sub">El OPIA monitorea, investiga y conecta a quienes construyen la IA en Panamá, para que el ecosistema crezca de forma ética, transparente y al servicio de la sociedad.</p>
-    <p class="sub">Desde ahí tendemos puentes entre gobierno, academia, sector privado y sociedad civil, y llevamos la conversación a los jóvenes: la generación que más va a convivir con esta tecnología.</p>
-    <div class="hitos">
-      <figure class="hito">
-        <img src="opia-innovanation.jpg" alt="Mario Quirós dando el taller Copilotos de IA en InnovaNation The Next Human 2026, frente a la diapositiva Tú eres el piloto, la IA es tu copiloto">
-        <figcaption>
-          <p class="rl">InnovaNation · The Next Human</p>
-          <p>Tú eres el piloto; la IA, tu copiloto. En el taller "Copilotos de IA: trabaja mejor, aprende más rápido" del Innova Nation Summit 2026 lo dejamos claro: el futuro del trabajo no es humano contra máquina, es el humano que sabe dirigirla.</p>
-        </figcaption>
-      </figure>
-      <figure class="hito">
-        <img src="opia-lanzamiento-gob.jpg" alt="Equipo de Intervento y del Observatorio Panameño de IA en el lanzamiento oficial de la Agenda Nacional de Tecnologías Avanzadas de Panamá">
-        <figcaption>
-          <p class="rl">Gobierno de Panamá</p>
-          <p>En el lanzamiento oficial de la Agenda Nacional de Tecnologías Avanzadas, con las estrategias de Inteligencia Artificial y de Semiconductores y Microelectrónica sobre la mesa. Desde OPIA seguimos de cerca este proceso — es lo que nos toca documentar.</p>
-        </figcaption>
-      </figure>
-      <figure class="hito">
-        <img src="opia-inadeh.jpg" alt="Mesa de trabajo técnica del Observatorio Panameño de IA con el INADEH y la Comisión Nacional de Competencias Laborales">
-        <figcaption>
-          <p class="rl">INADEH</p>
-          <p>Mesa de trabajo técnica con el INADEH y la Comisión Nacional de Competencias Laborales, sobre cómo integrar la IA a la clasificación oficial de ocupaciones del país — certificar competencia real, no solo horas de formación.</p>
-        </figcaption>
-      </figure>
-      <figure class="hito">
-        <img src="opia-oratoria.jpg" alt="Jurado del concurso interno de oratoria de Metropolitan Adventist School, con un estudiante premiado">
-        <figcaption>
-          <p class="rl">Jóvenes y educación</p>
-          <p>Jurado en el concurso interno de oratoria de Metropolitan Adventist School, con la IA como tema central — ayudando a las nuevas generaciones a entender su buen uso.</p>
-        </figcaption>
-      </figure>
+    <p class="sub">El OPIA monitorea, investiga y conecta a quienes construyen la IA en Panamá, para que el ecosistema crezca de forma ética, transparente y al servicio de la sociedad. Desde ahí tendemos puentes entre gobierno, academia, sector privado y sociedad civil, y llevamos la conversación a los jóvenes.</p>
+    <div class="moments">
+      <div class="mom-list" role="tablist" aria-label="Momentos con el OPIA">
+        <button class="mom" role="tab" id="mom-t0" aria-controls="mom-stage" aria-selected="true" data-i="0">
+          <span class="mom-cat">Formación</span>
+          <span class="mom-tit">Copilotos de IA en InnovaNation</span>
+          <span class="mom-cap">Tú eres el piloto; la IA, tu copiloto. En el taller "Copilotos de IA: trabaja mejor, aprende más rápido" del Innova Nation Summit 2026 lo dejamos claro: el futuro del trabajo no es humano contra máquina, es el humano que sabe dirigirla.</span>
+          <span class="mom-bar" aria-hidden="true"><i></i></span>
+        </button>
+        <button class="mom" role="tab" id="mom-t1" aria-controls="mom-stage" aria-selected="false" data-i="1">
+          <span class="mom-cat">Gobierno</span>
+          <span class="mom-tit">Agenda Nacional de Tecnologías Avanzadas</span>
+          <span class="mom-cap">Presentes en el lanzamiento oficial de la agenda del país, con las estrategias de Inteligencia Artificial y de Semiconductores sobre la mesa. Desde el OPIA seguimos y documentamos su avance.</span>
+          <span class="mom-bar" aria-hidden="true"><i></i></span>
+        </button>
+        <button class="mom" role="tab" id="mom-t2" aria-controls="mom-stage" aria-selected="false" data-i="2">
+          <span class="mom-cat">Formación laboral</span>
+          <span class="mom-tit">Mesa técnica con INADEH y CONACO</span>
+          <span class="mom-cap">Cómo integrar la IA a la clasificación oficial de ocupaciones del país: certificar competencia real, no solo horas de formación.</span>
+          <span class="mom-bar" aria-hidden="true"><i></i></span>
+        </button>
+        <button class="mom" role="tab" id="mom-t3" aria-controls="mom-stage" aria-selected="false" data-i="3">
+          <span class="mom-cat">Jóvenes</span>
+          <span class="mom-tit">Oratoria con la IA como tema</span>
+          <span class="mom-cap">Jurado en el concurso de oratoria de Metropolitan Adventist School, donde estudiantes debatieron el buen uso de la IA.</span>
+          <span class="mom-bar" aria-hidden="true"><i></i></span>
+        </button>
+      </div>
+      <div class="mom-stage" id="mom-stage" role="tabpanel" aria-live="polite">
+        <img src="opia-innovanation.jpg" alt="Mario Quirós dando el taller Copilotos de IA en InnovaNation The Next Human 2026, frente a la diapositiva Tú eres el piloto, la IA es tu copiloto" data-i="0" class="on" loading="lazy">
+        <img src="opia-lanzamiento-gob.jpg" alt="Equipo de Intervento y del Observatorio Panameño de IA en el lanzamiento oficial de la Agenda Nacional de Tecnologías Avanzadas de Panamá" data-i="1" loading="lazy">
+        <img src="opia-inadeh.jpg" alt="Mesa de trabajo técnica del Observatorio Panameño de IA con el INADEH y la Comisión Nacional de Competencias Laborales" data-i="2" loading="lazy">
+        <img src="opia-oratoria.jpg" alt="Jurado del concurso interno de oratoria de Metropolitan Adventist School, con la IA como tema central" data-i="3" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
@@ -723,6 +757,35 @@ gtag('config', 'G-1RHJ39L3EB');
     if (mLater) mLater.addEventListener('click', closeModal);
     ov.addEventListener('click', function(ev){ if (ev.target === ov) closeModal(); });
   }
+
+  /* momentos OPIA: tabs con avance automático */
+  (function(){
+    var box=document.querySelector('.moments'); if(!box) return;
+    var tabs=[].slice.call(box.querySelectorAll('.mom')), imgs=[].slice.call(box.querySelectorAll('.mom-stage img'));
+    var cur=0, timer=null, DUR=7000, user=false;
+    function show(i){
+      cur=(i+tabs.length)%tabs.length;
+      tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===cur?'true':'false');t.tabIndex=k===cur?0:-1;});
+      imgs.forEach(function(m,k){m.classList.toggle('on',k===cur);});
+      if(box.classList.contains('auto')){var b=tabs[cur].querySelector('.mom-bar i');b.style.animation='none';void b.offsetWidth;b.style.animation='';}
+    }
+    function start(){ if(reduced||user) return; stop(); box.classList.add('auto'); timer=setInterval(function(){ if(!box.classList.contains('paused')) show(cur+1); },DUR); }
+    function stop(){ clearInterval(timer); }
+    tabs.forEach(function(t,k){
+      t.addEventListener('click',function(){ user=true; stop(); box.classList.remove('auto'); show(k); });
+      t.addEventListener('keydown',function(e){
+        if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();user=true;stop();box.classList.remove('auto');show(cur+1);tabs[cur].focus();}
+        if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();user=true;stop();box.classList.remove('auto');show(cur-1);tabs[cur].focus();}
+      });
+    });
+    box.addEventListener('mouseenter',function(){box.classList.add('paused');});
+    box.addEventListener('mouseleave',function(){box.classList.remove('paused');});
+    imgs.forEach(function(m){m.loading='eager';});
+    show(0);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting) start(); else stop(); });},{threshold:.35}).observe(box);
+    } else start();
+  })();
 })();
 </script>
 
