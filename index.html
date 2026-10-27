@@ -296,12 +296,18 @@ gtag('config', 'G-1RHJ39L3EB');
   .modal-close:hover{border-color:var(--neon);}
   @media (max-width:480px){.modal{padding:28px;}}
 
-  /* variante vino profundo — para secciones que necesitan diferenciarse del negro sin ser blancas */
-  section.vino{background:#8E0E3D;}
-  section.vino .chip{color:#E6D9DE;border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.04);}
-  section.vino .sub{color:#E6D9DE;}
-  section.vino .hito .rl{color:#E6D9DE;}
-  section.vino .hito p{color:#E6D9DE;}
+  /* variante gris claro — se diferencia del blanco y del carbón */
+  section.gris{background:#F4F1F3;color:#121014;}
+  section.gris .chip{color:#5D575B;border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.02);}
+  section.gris h2,section.gris h3{color:#121014;}
+  section.gris .sub{color:#5D575B;max-width:760px;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
+  section.gris .link{color:#121014;}
+  section.gris .link:hover{color:#fe2f7e;}
+  section.gris .hito{background:#FFFFFF;border-color:rgba(0,0,0,.08);}
+  section.gris .hito .rl{color:#fe2f7e;}
+  section.gris .hito p{color:#5D575B;text-align:justify;hyphens:auto;-webkit-hyphens:auto;}
+  section.gris .hitos{grid-template-columns:repeat(2,1fr);}
+  @media (max-width:700px){section.gris .hitos{grid-template-columns:1fr;}}
 
   /* lead magnet en tema claro */
 
@@ -460,12 +466,19 @@ gtag('config', 'G-1RHJ39L3EB');
   </div>
 </section>
 
-<section id="compromiso" class="vino">
+<section id="compromiso" class="gris">
   <div class="wrap">
     <span class="chip">Compromiso</span>
     <h2 style="margin-top:22px;">La IA bien usada, es para todos.</h2>
     <p class="sub">Creemos en un uso ético y responsable de la IA — y en que el acceso a ella no dependa de quién ya sabe usarla. Por eso somos miembros del <a class="link" href="https://www.observatorioia.com.pa/" target="_blank" rel="noopener">Observatorio Panameño de Inteligencia Artificial (OPIA)</a>, desde donde trabajamos de cerca con el gobierno, instituciones como el <a class="link" href="https://www.inadeh.edu.pa/" target="_blank" rel="noopener">INADEH</a> y la Comisión Nacional de Competencias Laborales (CONACO), y con jóvenes, para llevar ese estándar a la práctica.</p>
     <div class="hitos">
+      <figure class="hito">
+        <img src="opia-innovanation.jpg" alt="Mario Quirós dando el taller Copilotos de IA en InnovaNation The Next Human 2026, frente a la diapositiva Tú eres el piloto, la IA es tu copiloto">
+        <figcaption>
+          <p class="rl">InnovaNation · The Next Human</p>
+          <p>Tú eres el piloto; la IA, tu copiloto. En el taller "Copilotos de IA: trabaja mejor, aprende más rápido" del Innova Nation Summit 2026 lo dejamos claro: el futuro del trabajo no es humano contra máquina, es el humano que sabe dirigirla.</p>
+        </figcaption>
+      </figure>
       <figure class="hito">
         <img src="opia-lanzamiento-gob.jpg" alt="Equipo de Intervento y del Observatorio Panameño de IA en el lanzamiento oficial de la Agenda Nacional de Tecnologías Avanzadas de Panamá">
         <figcaption>
@@ -488,41 +501,6 @@ gtag('config', 'G-1RHJ39L3EB');
         </figcaption>
       </figure>
     </div>
-  </div>
-</section>
-
-<section id="productos" class="claro">
-  <div class="wrap">
-    <span class="chip">Portafolio</span>
-    <h2 style="margin-top:22px;">Algunas cosas que hemos construido.</h2>
-    <p class="sub">Herramientas y páginas reales, publicadas y funcionando — construidas con IA en una fracción del tiempo y del costo tradicional.</p>
-    <div class="prods">
-      <div class="prod">
-        <p class="rl">Herramienta financiera</p>
-        <h3>Calculadora de deuda de tarjeta</h3>
-        <p>Le dice al usuario cuánto le cuesta de verdad su deuda de tarjeta y cómo salir de ella: intereses, cuotas y fecha de salida. Una herramienta financiera completa, construida de cero.</p>
-        <p class="plinks"><a class="link" href="https://tarjetadecredito.vercel.app/" target="_blank" rel="noopener">Ver en vivo</a></p>
-      </div>
-      <div class="prod">
-        <p class="rl">CRM</p>
-        <h3>Gestor de clientes</h3>
-        <p>Clientes, conversaciones y ventas en curso en un solo lugar — para el negocio que hoy lleva el seguimiento en el teléfono y la memoria.</p>
-        <p class="plinks"><a class="link" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20ver%20la%20demo%20del%20gestor%20de%20clientes.">Pídenos la demo</a></p>
-      </div>
-      <div class="prod">
-        <p class="rl">Directorio comercial</p>
-        <h3>Plantilla para guía gastronómica</h3>
-        <p>Restaurantes y locales con búsqueda y ficha propia — una guía hecha para mostrar y conectar la oferta gastronómica de una zona.</p>
-        <p class="plinks"><a class="link" href="https://visitancon.netlify.app/" target="_blank" rel="noopener">Ver en vivo</a></p>
-      </div>
-      <div class="prod">
-        <p class="rl">Páginas de venta</p>
-        <h3>Páginas que venden</h3>
-        <p>Páginas publicadas y operando para negocios reales.</p>
-        <p class="plinks pcol"><span><a class="link" href="https://brandtorevenue.agency/" target="_blank" rel="noopener">Brand to Revenue</a><em>Firma de consultoría de marketing de negocios</em></span><span><a class="link" href="https://www.cafecucua.com/" target="_blank" rel="noopener">Café Cucuá</a><em>Marca de café de especialidad directo al consumidor</em></span></p>
-      </div>
-    </div>
-    <p class="plans-note">¿Tu negocio necesita algo así? <a class="link" href="https://wa.me/50762440096?text=Hola%2C%20vi%20tu%20portafolio%20y%20quiero%20ver%20si%20algo%20as%C3%AD%20aplica%20a%20mi%20negocio.">Eso se define en el diagnóstico.</a></p>
   </div>
 </section>
 
