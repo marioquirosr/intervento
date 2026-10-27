@@ -722,6 +722,10 @@ html{scroll-behavior:smooth}
 .nexth h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.03em;margin-top:10px;color:#fff}
 .gstage .stin:has(.gdone:not([hidden])){max-width:1000px}
 .gdone .sumdet summary{color:var(--ink)}.gdone .sumdet[open] summary{border-color:var(--line)}
+.surprise{display:flex;gap:14px;align-items:flex-start;margin-top:22px;padding:16px 18px;border-radius:14px;background:var(--blush);border:1px solid #ffd3e4}
+.surprise .gift{font-size:24px;line-height:1}
+.surprise p{font-size:15px;line-height:1.55;color:var(--ink)}
+.surprise b{font-weight:600}
 
 </style>
 </head>
@@ -1080,7 +1084,7 @@ html{scroll-behavior:smooth}
       <p class="note" id="m6alt">Otras opciones: <a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a> (también sin cuenta) o <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> (pide crear una cuenta gratis).</p>
       <p class="note" style="margin:18px 0 10px">Si te responde con preguntas, contéstale. Si algo no te gusta, díselo. Toca una frase para copiarla:</p>
       <div class="chips" id="m6ref"></div>
-      <p class="note">¿Prefieres hacerlo después, en la computadora? <a id="m6later" href="https://wa.me/" target="_blank" rel="noopener">Mándate el mensaje a tu WhatsApp</a>.</p>
+      <div class="surprise"><span class="gift" aria-hidden="true">🎁</span><p><b>Cuando termines tu conversación, regresa aquí.</b> Toca <b>"Terminar el curso"</b> abajo y recibe una sorpresa.</p></div>
     </div></div>
     </div>
   </div>
@@ -1225,7 +1229,7 @@ html{scroll-behavior:smooth}
     else{nb.hidden=true}
     $('cnt').textContent=i>=0?'Lección '+(i+1)+' de '+TOTAL+(n>1?' · Parte '+(k+1)+' de '+n:''):'Curso completado';
   }
-  function showGate(){var d=!!state.lead;$('gform').hidden=d;$('gdone').hidden=!d;$('gbelow').hidden=d}
+  function showGate(){var d=!!state.lead2;$('gform').hidden=d;$('gdone').hidden=!d;$('gbelow').hidden=d}
   var tT;function toast(t){var e=$('toastc');$('toasttxt').textContent=t;e.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){e.classList.remove('on')},2400)}
   function nextLabel(id){var i=idx(id);return 'Siguiente: '+L[i+1].name}
   function mark(id){
@@ -1241,7 +1245,7 @@ html{scroll-behavior:smooth}
     function fail(m){err.textContent=m;err.hidden=false;em.focus()}
     function enter(){
       try{var im=document.querySelector('.top img');if(im)$('sumlogo').src=im.src}catch(e){}
-      state.lead=1;save();showGate();window.scrollTo(0,0);
+      state.lead2=1;save();showGate();window.scrollTo(0,0);
     }
     if(state.lead){try{var im0=document.querySelector('.top img');if(im0)$('sumlogo').src=im0.src}catch(e){}}
     f.addEventListener('submit',function(e){
@@ -1498,7 +1502,6 @@ html{scroll-behavior:smooth}
   function r6(){
     var c=clean($('m6ctx').value),q=clean($('m6need').value);
     $('m6out').value='Hola. '+(c?c+'. ':'')+'Necesito tu ayuda con esto: '+(q||'…')+'. Antes de responder, pregúntame lo que necesites saber.';
-    $('m6later').href='https://wa.me/?text='+encodeURIComponent($('m6out').value);
   }
   tasks.forEach(function(t,i){
     var b=mk('button','chip',t.n);b.setAttribute('aria-pressed',i===0?'true':'false');
