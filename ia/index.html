@@ -679,6 +679,22 @@ html{scroll-behavior:smooth}
 .demo .after.rev{background:var(--blush);border-radius:12px;padding:14px 16px;color:var(--ink);animation:rise .4s ease both}
 .demo .after.rev b{display:block;color:var(--mag);font-family:var(--display);font-size:18px;margin-bottom:4px}
 .demo:has(.after.rev) .kbl{display:none}.demo:has(.after.rev) .kb .sugg{margin-top:12px}
+.stage .morep{margin-top:16px}
+.stage .morep .more{margin-top:0}
+.stp>.leadok{margin-bottom:0}
+.main{display:flex;flex-direction:column;min-height:calc(100vh - var(--bar) - env(safe-area-inset-top,0px))}
+.main>.screen:not([hidden]){flex:1 0 auto;display:flex;flex-direction:column}
+.main>.screen>.stage{flex:1 0 auto}
+
+/* avance por módulo: sección 2 con fondo vino (carbón + magenta) */
+.stage.mod2{background:#2a0e1b}
+.stage.mod2 .chaps{background:rgba(255,255,255,.07);border-color:#4a2536}
+.stage.mod2 .chap i{background:#4a2536}
+.stage.mod2 .chap.seen i{background:#5e3045}
+.stage.mod2 .st{color:#e3cfd8}
+.sec+.sec summary{background:var(--blush)}
+.sec+.sec .lb.cur{background:var(--blush)}
+.stage.mod2 .chap.on i{background:var(--mag)}.stage.mod2 .stp .lm{color:#ff8db6}
 
 </style>
 </head>
@@ -762,29 +778,17 @@ html{scroll-behavior:smooth}
   <div class="shell">
     <main class="main" id="app">
 <section class="screen" id="m0" hidden>
-  <div class="stage">
+  <div class="stage mod1">
     <div class="stin">
     <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Explicación"><i>2</i><span>Explicación</span></button><button class="chap" type="button" role="tab" title="Ir a: Prueba rápida"><i>3</i><span>Prueba rápida</span></button></div>
     <div class="stp">
       <span class="eyebrow lm">Lección 1 de 7 · 4 min</span>
       <h1>¿Qué es la IA?</h1>
       <p class="st">Lunes, 8:00 a. m. Te avisan que hoy llega un asistente nuevo a tu equipo. Antes de darle trabajo quieres saber una cosa: ¿qué clase de asistente es?</p>
-      <div class="row"><button class="btn mag" data-to="1">Continuar →</button></div>
     </div>
     <div class="stp" hidden>
       <div class="acard"><span class="art"><svg aria-hidden="true"><use href="#a7"/></svg></span><span class="eyebrow" style="display:block">Explicación</span><h2>No sigue una receta. Aprendió como un niño.</h2><div class="vs"><div><b>Un programa normal</b><p>Es como una <strong>receta de cocina</strong>. Alguien escribió cada paso y lo sigue al pie de la letra. Si algo no está en la receta, no sabe qué hacer.</p></div><div><b>La IA</b><p>Es como un <strong>niño que aprende qué es un perro</strong>. Nadie le dio una regla: vio muchos perros y ahora reconoce uno nuevo, aunque nunca lo haya visto.</p></div></div></div>
-      <div class="row"><button class="btn mag" data-to="2">Continuar →</button></div>
-    </div>
-    <div class="stp" hidden><div class="panel">
-      <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba rápida</p>
-      <div class="task"><p>¿Esto es IA o no?</p><span class="pill" id="m0c">0 de 6</span></div>
-      <div class="sort" id="m0sort"></div>
-      <div class="lesson" id="m0l" hidden><b>Lo que te llevas</b>Ya usas IA todos los días sin darte cuenta. Lo nuevo es que ahora también puedes conversar con ella.</div>
-    </div></div>
-    </div>
-  </div>
-  <div class="below">
-    <div class="more">
+      <div class="panel morep"><div class="more">
     <span class="eyebrow">Antes de seguir</span>
     <h2>Dos tipos de IA</h2>
     <div class="types" style="margin-top:16px">
@@ -794,24 +798,30 @@ html{scroll-behavior:smooth}
     <h2 style="margin-top:36px">3 dudas comunes</h2>
     <p class="note" style="margin:8px 0 12px">Toca cada pregunta para ver la respuesta.</p>
     <div class="myths" id="m0myths"></div>
-  </div>
-    <p class="bridge"><span class="eyebrow" style="display:block;margin-bottom:6px">Lo que sigue</span>Ya sabes qué clase de asistente es. Ahora vas a ver <b>cómo llega a sus respuestas.</b></p>
+  </div></div>
+    </div>
+    <div class="stp" hidden><div class="panel">
+      <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba rápida</p>
+      <div class="task"><p>¿Esto es IA o no?</p><span class="pill" id="m0c">0 de 6</span></div>
+      <div class="sort" id="m0sort"></div>
+      <div class="lesson" id="m0l" hidden><b>Lo que te llevas</b>Ya usas IA todos los días sin darte cuenta. Lo nuevo es que ahora también puedes conversar con ella.</div>
+    </div></div>
+    </div>
   </div>
 </section>
 
 <section class="screen" id="m2" hidden>
-  <div class="stage">
+  <div class="stage mod1">
     <div class="stin">
     <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Explicación"><i>2</i><span>Explicación</span></button><button class="chap" type="button" role="tab" title="Ir a: Prueba rápida"><i>3</i><span>Prueba rápida</span></button></div>
     <div class="stp">
       <span class="eyebrow lm">Lección 2 de 7 · 3 min</span>
       <h1>¿Cómo piensa?</h1>
       <p class="st">Ya sabes qué tipo de asistente es. Ahora te preguntas cómo llega a sus respuestas: ¿las busca en algún lado o las inventa en el momento?</p>
-      <div class="row"><button class="btn mag" data-to="1">Continuar →</button></div>
     </div>
     <div class="stp" hidden>
       <div class="acard"><span class="art"><svg aria-hidden="true"><use href="#a2"/></svg></span><span class="eyebrow" style="display:block">Explicación</span><h2>El autocompletar de tu celular, pero gigante.</h2><p>Cuando escribes "Buenos", tu celular te sugiere "días". La IA hace lo mismo con frases completas. No busca la respuesta en internet: predice qué palabra sigue, una tras otra, según todo lo que leyó.</p></div>
-      <div class="row"><button class="btn mag" data-to="2">Continuar →</button></div>
+      
     </div>
     <div class="stp" hidden><div class="panel">
       <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba rápida</p>
@@ -826,25 +836,20 @@ html{scroll-behavior:smooth}
     </div></div>
     </div>
   </div>
-  <div class="below">
-    
-    <p class="bridge"><span class="eyebrow" style="display:block;margin-bottom:6px">Lo que sigue</span>Ya sabes cómo piensa. Ahora: <b>¿se acordará de lo que le cuentes?</b></p>
-  </div>
 </section>
 
 <section class="screen" id="m3" hidden>
-  <div class="stage">
+  <div class="stage mod1">
     <div class="stin">
     <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Explicación"><i>2</i><span>Explicación</span></button><button class="chap" type="button" role="tab" title="Ir a: Prueba rápida"><i>3</i><span>Prueba rápida</span></button></div>
     <div class="stp">
       <span class="eyebrow lm">Lección 3 de 7 · 3 min</span>
       <h1>¿Qué recuerda?</h1>
       <p class="st">Le contaste a tu asistente quién eres y a qué te dedicas. Mañana le haces otra pregunta. ¿Se acuerda de ti?</p>
-      <div class="row"><button class="btn mag" data-to="1">Continuar →</button></div>
     </div>
     <div class="stp" hidden>
       <div class="acard"><span class="art"><svg aria-hidden="true"><use href="#a3"/></svg></span><span class="eyebrow" style="display:block">Explicación</span><h2>Cada conversación es una pizarra.</h2><p>Todo lo que le cuentas queda escrito en la pizarra y lo usa para responderte. Si abres una conversación nueva, la pizarra empieza en blanco.</p></div>
-      <div class="row"><button class="btn mag" data-to="2">Continuar →</button></div>
+      
     </div>
     <div class="stp" hidden><div class="panel">
       <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba rápida</p>
@@ -859,25 +864,20 @@ html{scroll-behavior:smooth}
     </div></div>
     </div>
   </div>
-  <div class="below">
-    
-    <p class="bridge"><span class="eyebrow" style="display:block;margin-bottom:6px">Lo que sigue</span>Ya sabes qué recuerda. Ahora la pregunta más importante: <b>¿cuándo no creerle?</b></p>
-  </div>
 </section>
 
 <section class="screen" id="m5" hidden>
-  <div class="stage">
+  <div class="stage mod1">
     <div class="stin">
     <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Explicación"><i>2</i><span>Explicación</span></button><button class="chap" type="button" role="tab" title="Ir a: Prueba rápida"><i>3</i><span>Prueba rápida</span></button></div>
     <div class="stp">
       <span class="eyebrow lm">Lección 4 de 7 · 3 min</span>
       <h1>¿Cuándo no creerle?</h1>
       <p class="st">Tu asistente responde rapidísimo y siempre con seguridad. Pero hasta el mejor asistente se equivoca. ¿Cómo notas cuándo?</p>
-      <div class="row"><button class="btn mag" data-to="1">Continuar →</button></div>
     </div>
     <div class="stp" hidden>
       <div class="acard"><span class="art"><svg aria-hidden="true"><use href="#a5"/></svg></span><span class="eyebrow" style="display:block">Explicación</span><h2>Un amigo muy seguro de sí mismo.</h2><p>Habla con la misma firmeza cuando sabe y cuando improvisa. Por eso te toca a ti distinguirlo.</p></div>
-      <div class="row"><button class="btn mag" data-to="2">Continuar →</button></div>
+      
     </div>
     <div class="stp" hidden><div class="panel">
       <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba rápida</p>
@@ -895,25 +895,20 @@ html{scroll-behavior:smooth}
     </div></div>
     </div>
   </div>
-  <div class="below">
-    
-    <p class="bridge"><span class="eyebrow" style="display:block;margin-bottom:6px">Lo que sigue</span>Terminaste de conocerlo. Ahora lo mejor: <b>ponerlo a trabajar.</b></p>
-  </div>
 </section>
 
 <section class="screen" id="m1" hidden>
-  <div class="stage">
+  <div class="stage mod2">
     <div class="stin">
     <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Explicación"><i>2</i><span>Explicación</span></button><button class="chap" type="button" role="tab" title="Ir a: Prueba rápida"><i>3</i><span>Prueba rápida</span></button></div>
     <div class="stp">
       <span class="eyebrow lm">Lección 5 de 7 · 3 min</span>
       <h1>¿Qué puede hacer por ti?</h1>
       <p class="st">Ya pasó tu semana de inducción: sabes cómo es tu asistente. Ahora toca lo que querías desde el principio, ponerlo a trabajar.</p>
-      <div class="row"><button class="btn mag" data-to="1">Continuar →</button></div>
     </div>
     <div class="stp" hidden>
       <div class="acard"><span class="art"><svg aria-hidden="true"><use href="#a1"/></svg></span><span class="eyebrow" style="display:block">Explicación</span><h2>Un asistente nuevo, en su primer día.</h2><p>Muy capaz y rapidísimo. Leyó muchísimo y puede trabajar con textos, fotos, documentos y notas de voz. Pero todavía no te conoce ni sabe cómo trabajas.</p></div>
-      <div class="row"><button class="btn mag" data-to="2">Continuar →</button></div>
+      
     </div>
     <div class="stp" hidden><div class="panel">
       <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba rápida</p>
@@ -924,25 +919,20 @@ html{scroll-behavior:smooth}
     </div></div>
     </div>
   </div>
-  <div class="below">
-    
-    <p class="bridge"><span class="eyebrow" style="display:block;margin-bottom:6px">Lo que sigue</span>Ya sabes qué puede hacer. Ahora: <b>¿cómo se lo pides?</b></p>
-  </div>
 </section>
 
 <section class="screen" id="m4" hidden>
-  <div class="stage">
+  <div class="stage mod2">
     <div class="stin">
     <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Explicación"><i>2</i><span>Explicación</span></button><button class="chap" type="button" role="tab" title="Ir a: Prueba rápida"><i>3</i><span>Prueba rápida</span></button></div>
     <div class="stp">
       <span class="eyebrow lm">Lección 6 de 7 · 4 min</span>
       <h1>¿Cómo se le habla?</h1>
       <p class="st">Vas a pedirle tu primera tarea. Te preocupa decirlo mal. ¿Necesitas encontrar el mensaje perfecto?</p>
-      <div class="row"><button class="btn mag" data-to="1">Continuar →</button></div>
     </div>
     <div class="stp" hidden>
       <div class="acard"><span class="art"><svg aria-hidden="true"><use href="#a4"/></svg></span><span class="eyebrow" style="display:block">Explicación</span><h2>Como darle la dirección a un taxista nuevo.</h2><p>No necesitas la dirección perfecta desde el inicio. Le dices adónde vas y en el camino le vas indicando: "por aquí", "aquí no", "un poco más". Así llegas.</p></div>
-      <div class="row"><button class="btn mag" data-to="2">Continuar →</button></div>
+      
     </div>
     <div class="stp" hidden><div class="panel">
       <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Prueba rápida</p>
@@ -954,10 +944,6 @@ html{scroll-behavior:smooth}
       <div class="lesson" id="m4l" hidden><b>Lo que te llevas</b>No hay fórmula ni palabras mágicas. Le hablas como a una persona, le cuentas quién eres y, si algo no te gusta, se lo dices. Que te haga preguntas es buena señal.</div>
     </div></div>
     </div>
-  </div>
-  <div class="below">
-    
-    <p class="bridge"><span class="eyebrow" style="display:block;margin-bottom:6px">Lo que sigue</span>Ya sabes cómo hablarle. Falta <b>tu primer encargo real.</b></p>
   </div>
 </section>
 
@@ -1002,7 +988,7 @@ html{scroll-behavior:smooth}
 </section>
 
 <section class="screen" id="m6" hidden>
-  <div class="stage">
+  <div class="stage mod2">
     <div class="stin">
     <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Práctica"><i>2</i><span>Práctica</span></button></div>
     <div class="stp">
@@ -1036,7 +1022,6 @@ html{scroll-behavior:smooth}
       </div>
         </details>
       </div>
-      <div class="row"><button class="btn mag" data-to="1">Continuar →</button></div>
     </div>
     <div class="stp" hidden><div class="panel">
       <p class="turno"><svg aria-hidden="true"><use href="#tap"/></svg>Práctica</p>
@@ -1080,7 +1065,7 @@ html{scroll-behavior:smooth}
       <div class="navbar" id="navbar"><div class="navin">
         <button class="btn ghost sm" id="prevbtn">← Anterior</button>
         <span class="cnt" id="cnt"></span>
-        <button class="btn sm" id="nextbtn"><span>Siguiente<span class="nxl" id="nxl"></span> →</span></button>
+        <button class="btn sm" id="nextbtn"><span><span id="nbt">Siguiente</span><span class="nxl" id="nxl"></span> →</span></button>
       </div></div>
     </main>
     <aside class="side" id="side" aria-label="Contenido del curso">
@@ -1152,7 +1137,9 @@ html{scroll-behavior:smooth}
     function show(k,scr){
       steps.forEach(function(s,i){s.hidden=i!==k;if(i===k){s.classList.remove('enter');void s.offsetWidth;s.classList.add('enter')}});
       ch.forEach(function(c,i){c.classList.toggle('on',i===k);c.classList.toggle('seen',i<k);c.setAttribute('aria-selected',i===k?'true':'false')});
+      sg._k=k;sg._n=steps.length;
       if(scr)window.scrollTo(0,0);
+      if(sg.closest('.screen').id===state.at)navSync();
     }
     sg._show=show;
     ch.forEach(function(c,i){c.addEventListener('click',function(){show(i,1)})});
@@ -1197,17 +1184,21 @@ html{scroll-behavior:smooth}
     $('course').hidden=home;
     if(!home)$('inicio').hidden=true;
     state.at=id;save();paint(id);initNudge(id);setDrawer(false);
-    var nb=$('nextbtn'),pb=$('prevbtn'),i=idx(id),nx=NEXT[id];
-    nb.classList.remove('mag','nudge');
-    pb.hidden=false;pb.onclick=function(){go(PREV[id])};
-    pb.textContent=id==='cierre'?'← Volver':'← Anterior';
-    if(nx){nb.hidden=false;nb.onclick=function(){mark(id);go(nx)};$('nxl').textContent=': '+L[i+1].name;
-      if(state.done[id]){nb.classList.add('mag')}}
-    else{nb.hidden=true}
-    $('cnt').textContent=i>=0?'Lección '+(i+1)+' de '+TOTAL:'Último paso';
+    navSync();
     $('navbar').hidden=false;
     try{history.replaceState(null,'','#'+id)}catch(e){}
     if(!noScroll)window.scrollTo(0,0);
+  }
+  function navSync(){
+    var id=state.at,nb=$('nextbtn'),pb=$('prevbtn'),i=idx(id),nx=NEXT[id],sg=$(id).querySelector('.stage');
+    var ok=sg&&sg._show,k=ok?sg._k:0,n=ok?sg._n:1;
+    nb.classList.remove('mag','nudge');pb.hidden=false;
+    if(k>0){pb.textContent='← Atrás';pb.onclick=function(){sg._show(k-1,1)}}
+    else{pb.textContent=id==='cierre'?'← Volver':'← Anterior';pb.onclick=function(){go(PREV[id])}}
+    if(k<n-1){nb.hidden=false;$('nbt').textContent='Continuar';$('nxl').textContent='';nb.classList.add('mag');nb.onclick=function(){sg._show(k+1,1)}}
+    else if(nx){nb.hidden=false;$('nbt').textContent='Siguiente lección';$('nxl').textContent=': '+L[i+1].name;nb.onclick=function(){mark(id);go(nx)};if(state.done[id])nb.classList.add('mag')}
+    else{nb.hidden=true}
+    $('cnt').textContent=i>=0?'Lección '+(i+1)+' de '+TOTAL+(n>1?' · Parte '+(k+1)+' de '+n:''):'Último paso';
   }
   var tT;function toast(t){var e=$('toastc');$('toasttxt').textContent=t;e.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){e.classList.remove('on')},2400)}
   function nextLabel(id){var i=idx(id);return 'Siguiente: '+L[i+1].name}
