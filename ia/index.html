@@ -624,10 +624,10 @@ html{scroll-behavior:smooth}
 .bc .d{font-size:15px;color:#b9b2bd;line-height:1.5}
 .bc .go{margin-top:auto;padding-top:14px;font-size:14.5px;font-weight:600;color:#fff}
 .bc .k{align-self:flex-start;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--mag);padding:4px 10px;border-radius:999px;margin-bottom:6px}
-.bc.main{background:#fff;color:var(--ink);border-color:#fff}
-.bc.main .d{color:var(--mute)}
-.bc.main .go{color:var(--mag)}
-.bc.main:hover{background:#fff}
+.bc.hl{background:#fff;color:var(--ink);border-color:#fff}
+.bc.hl .d{color:var(--mute)}
+.bc.hl .go{color:var(--mag)}
+.bc.hl:hover{background:#fff}
 .trust{display:block}
 .trust::before{display:inline-block;margin-right:8px;vertical-align:1px}
 .facts li b{margin-right:3px}
@@ -696,6 +696,19 @@ html{scroll-behavior:smooth}
 .sec+.sec .lb.cur{background:var(--blush)}
 .stage.mod2 .chap.on i{background:var(--mag)}.stage.mod2 .stp .lm{color:#ff8db6}
 
+/* siguientes pasos al terminar */
+.paths{display:grid;gap:14px;margin-top:28px}
+@media(min-width:1100px){.paths{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.stage .paths .bc{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+.stage .paths .bc:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
+.stage .paths .bc.hl{background:#fff;border-color:#fff}
+.bc .price{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-.02em;color:var(--mag);line-height:1.1}
+.bc .price small{font-family:var(--body);font-size:14px;font-weight:500;color:var(--mute)}
+.stage:has(.paths:not([hidden])) .stin{max-width:1000px}
+.pfoot{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:28px}
+.pfoot a,.pfoot button{background:none;border:0;padding:0;color:#e3cfd8;font-size:14.5px;font-weight:500;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.pfoot a:hover,.pfoot button:hover{color:#fff}
+
 </style>
 </head>
 <body>
@@ -759,7 +772,7 @@ html{scroll-behavior:smooth}
         <p>Este curso es el primer paso. Sigue <b>a tu ritmo en una clase individual</b>, <b>en grupo en un taller</b> o <b>con tu equipo en una sesión a la medida</b>.</p>
       </div>
       <div class="bizcta">
-        <a class="bc main" href="https://wa.me/50762440096?text=Hola%2C%20vengo%20del%20curso%20IA%20desde%20cero.%20Quiero%20reservar%20una%20clase%20individual." target="_blank" rel="noopener"><span class="k">Uno a uno</span><b>Clase individual</b><span class="d">Una hora, un tema, ritmo tuyo. Desde una intro básica a la IA hasta armar juntos una herramienta simple para tu negocio.</span><span class="go">Reservar mi clase →</span></a>
+        <a class="bc hl" href="https://wa.me/50762440096?text=Hola%2C%20vengo%20del%20curso%20IA%20desde%20cero.%20Quiero%20reservar%20una%20clase%20individual%20%28%2450%20la%20hora%29." target="_blank" rel="noopener"><span class="k">Uno a uno</span><b>Clase individual</b><span class="price">$50 <small>la hora</small></span><span class="d">Una hora, un tema, ritmo tuyo. Desde una intro básica a la IA hasta armar juntos una herramienta simple para tu negocio.</span><span class="go">Reservar mi clase →</span></a>
         <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20vengo%20del%20curso%20IA%20desde%20cero.%20Quiero%20preguntar%20por%20el%20pr%C3%B3ximo%20cupo%20de%20los%20talleres." target="_blank" rel="noopener"><span class="k2">Grupos pequeños</span><b>Talleres</b><span class="d">Cupos limitados con emprendedores, creadores y dueños de negocio. Aprendes haciendo: sales con al menos una tarea real resuelta con IA ese mismo día.</span><span class="go">Preguntar por el próximo cupo →</span></a>
         <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20vengo%20del%20curso%20IA%20desde%20cero.%20Quiero%20llevar%20una%20conferencia%20o%20sesi%C3%B3n%20de%20IA%20a%20mi%20equipo%20o%20evento." target="_blank" rel="noopener"><span class="k2">Empresas, gremios y eventos</span><b>Conferencias y sesiones para equipos</b><span class="d">Charlas para eventos, universidades y gremios, o una sesión diseñada para tu equipo. Desde "qué es la IA" hasta cómo usarla para ganar agilidad en el día a día.</span><span class="go">Llevar una a mi equipo o evento →</span></a>
       </div>
@@ -990,7 +1003,7 @@ html{scroll-behavior:smooth}
 <section class="screen" id="m6" hidden>
   <div class="stage mod2">
     <div class="stin">
-    <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Práctica"><i>2</i><span>Práctica</span></button></div>
+    <p class="chlbl">Partes de esta lección</p><div class="chaps" role="tablist" aria-label="Partes de la lección"><button class="chap" type="button" role="tab" title="Ir a: Introducción"><i>1</i><span>Introducción</span></button><button class="chap" type="button" role="tab" title="Ir a: Práctica"><i>2</i><span>Práctica</span></button><button class="chap" type="button" role="tab" title="Ir a: Siguientes pasos"><i>3</i><span>Siguientes pasos</span></button></div>
     <div class="stp">
       <span class="eyebrow lm">Lección 7 de 7 · 5 min</span>
       <h1>Tu primera conversación</h1>
@@ -1042,23 +1055,18 @@ html{scroll-behavior:smooth}
       <div class="chips" id="m6ref"></div>
       <p class="note">¿Prefieres hacerlo después, en la computadora? <a id="m6later" href="https://wa.me/" target="_blank" rel="noopener">Mándate el mensaje a tu WhatsApp</a>.</p>
     </div></div>
-    </div>
-  </div>
-  <div class="below">
-    <span class="eyebrow">Tus siguientes pasos</span>
-    <div class="next-steps">
-      <div class="wacta">
-        <h3>¿Quieres una sesión o algún servicio?</h3>
-        <p>Chatéanos por WhatsApp y te contamos las opciones.</p>
-        <div class="row" style="margin-top:18px"><a class="btn mag" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20IA%20desde%20cero%20y%20me%20interesa%20una%20sesi%C3%B3n%20o%20un%20servicio%20de%20Intervento." target="_blank" rel="noopener">Chatear por WhatsApp</a></div>
+    <div class="stp" hidden>
+      <span class="eyebrow lm">Terminaste el curso</span>
+      <h1>¿Y ahora qué?</h1>
+      <p class="st">Ya diste el primer paso. Elige cómo quieres seguir.</p>
+      <div class="paths">
+        <a class="bc hl" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20reservar%20una%20clase%20individual%20%28%2450%20la%20hora%29." target="_blank" rel="noopener"><span class="k">Quiero profundizar</span><b>Clase individual</b><span class="price">$50 <small>la hora</small></span><span class="d">Uno a uno, a tu ritmo. Desde lo básico hasta armar juntos una herramienta simple para tu negocio.</span><span class="go">Reservar mi clase →</span></a>
+        <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20aprender%20en%20grupo.%20%C2%BFCu%C3%A1ndo%20es%20el%20pr%C3%B3ximo%20taller%3F" target="_blank" rel="noopener"><span class="k2">Quiero aprender en grupo</span><b>Talleres</b><span class="d">Cupos limitados con emprendedores, creadores y dueños de negocio. Sales con al menos una tarea real resuelta con IA ese mismo día.</span><span class="go">Preguntar por el próximo cupo →</span></a>
+        <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero.%20Ya%20tengo%20una%20idea%20clara%20y%20quiero%20que%20construyamos%20algo%20juntos.%20Quiero%20cotizar." target="_blank" rel="noopener"><span class="k2">Ya la tengo clara</span><b>Construyamos algo juntos</b><span class="d">Una herramienta, una automatización o tu idea funcionando. Cuéntanos qué necesitas y te enviamos una cotización.</span><span class="go">Contactar para cotizar →</span></a>
       </div>
-      <div class="visit">
-        <h3>Conoce Intervento</h3>
-        <p>Ingeniería de negocios con IA: convertimos ideas y procesos en negocios que funcionan.</p>
-        <div class="row" style="margin-top:16px"><a class="btn" id="weblink" href="https://getintervento.com" target="_blank" rel="noopener">Visitar getintervento.com</a></div>
-      </div>
+      <div class="pfoot"><a id="weblink" href="https://getintervento.com" target="_blank" rel="noopener">Conoce Intervento</a><button type="button" id="again">Repasar las lecciones</button></div>
     </div>
-    <div class="row" style="margin-top:24px"><button class="btn ghost sm" id="again">Repasar las lecciones</button></div>
+    </div>
   </div>
 </section>
 
@@ -1197,13 +1205,13 @@ html{scroll-behavior:smooth}
     else{pb.textContent=id==='cierre'?'← Volver':'← Anterior';pb.onclick=function(){go(PREV[id])}}
     if(k<n-1){nb.hidden=false;$('nbt').textContent='Continuar';$('nxl').textContent='';nb.classList.add('mag');nb.onclick=function(){sg._show(k+1,1)}}
     else if(nx){nb.hidden=false;$('nbt').textContent='Siguiente lección';$('nxl').textContent=': '+L[i+1].name;nb.onclick=function(){mark(id);go(nx)};if(state.done[id])nb.classList.add('mag')}
-    else{nb.hidden=true}
+    else{nb.hidden=true;if(id===L[TOTAL-1].id&&k===n-1&&n>1)mark(id)}
     $('cnt').textContent=i>=0?'Lección '+(i+1)+' de '+TOTAL+(n>1?' · Parte '+(k+1)+' de '+n:''):'Último paso';
   }
   var tT;function toast(t){var e=$('toastc');$('toasttxt').textContent=t;e.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){e.classList.remove('on')},2400)}
   function nextLabel(id){var i=idx(id);return 'Siguiente: '+L[i+1].name}
   function mark(id){
-    if(!state.done[id]){state.done[id]=1;track('leccion_completada',{leccion:id});save();paint(state.at);toast('Lección '+(idx(id)+1)+' completada')}
+    if(!state.done[id]){state.done[id]=1;track('leccion_completada',{leccion:id});save();paint(state.at);toast(idx(id)===TOTAL-1?'¡Terminaste el curso!':'Lección '+(idx(id)+1)+' completada')}
     if(state.at===id&&NEXT[id]){var nb=$('nextbtn');nb.classList.add('mag','nudge')}
   }
   $('start').addEventListener('click',function(){track('guia_inicio');go(L[0].id)});
