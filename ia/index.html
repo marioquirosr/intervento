@@ -572,6 +572,27 @@ h1,h2,h3{font-weight:700}
 @media(max-width:480px){.chaps{display:flex}.chap{flex:1;justify-content:center;padding:0 8px}.chap:not(.on) span{display:none}.chap.on{flex:2.4}}
 .chlbl{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;color:#a9a2ad;margin:0 0 10px 4px}
 
+/* ===== inicio: blancos + pasteles derivados de la paleta (magenta y carbón suavizados) ===== */
+:root{--blush:#fff0f6;--blush-2:#ffe4ef;--mist:#f5f2f7;--rose-line:#f3e2ea}
+#inicio{background:
+  radial-gradient(55% 45% at 92% 6%,var(--blush-2) 0%,rgba(255,228,239,0) 70%),
+  radial-gradient(45% 40% at -5% 55%,var(--mist) 0%,rgba(245,242,247,0) 72%),
+  #fff}
+.demo{background:rgba(255,255,255,.85);color:var(--ink);border:1px solid var(--rose-line);box-shadow:0 24px 60px -28px rgba(254,47,126,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.demo .lbl,.demo .after{color:var(--mute)}
+.demo .after b{color:var(--ink)}
+.sugg{background:var(--mist)}
+.sugg button{color:var(--ink)}
+.sugg button:hover{background:#fff}
+.sugg button:first-child{color:var(--mag)}
+.facts li{background:var(--blush);color:var(--ink)}
+.plan{background:linear-gradient(180deg,rgba(255,240,246,0) 0%,var(--blush) 22%,#fff8fb 100%)}
+.modcard{background:#fff;border:1px solid var(--rose-line);box-shadow:0 10px 30px -22px rgba(18,16,20,.25)}
+.modcard .n{background:var(--blush);color:var(--mag)}
+.modcard li{border-top-color:#f4ecf0}
+.outs div{background:#fff;border:1px solid var(--rose-line)}
+.home-top .btn.ghost{background:#fff}
+
 </style>
 </head>
 <body>
