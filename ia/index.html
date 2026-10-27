@@ -726,6 +726,8 @@ html{scroll-behavior:smooth}
 .surprise .gift{font-size:24px;line-height:1}
 .surprise p{font-size:15px;line-height:1.55;color:var(--ink)}
 .surprise b{font-weight:600}
+#course.final .side,#course.final .menu-btn,#course.final .scrim{display:none!important}
+#course.final .shell{grid-template-columns:minmax(0,1fr)}
 
 </style>
 </head>
@@ -1207,6 +1209,7 @@ html{scroll-behavior:smooth}
     if(ORDER.indexOf(id)<0)id='inicio';
     ORDER.forEach(function(x){var el=$(x);el.hidden=x!==id;if(x===id){el.classList.remove('enter');void el.offsetWidth;el.classList.add('enter')}});
     var sgx=$(id).querySelector('.stage');if(sgx&&sgx._show)sgx._show(0);
+    $('course').classList.remove('final');
     if(id==='cierre')showGate();
     var home=id==='inicio';
     $('course').hidden=home;
@@ -1229,7 +1232,7 @@ html{scroll-behavior:smooth}
     else{nb.hidden=true}
     $('cnt').textContent=i>=0?'Lección '+(i+1)+' de '+TOTAL+(n>1?' · Parte '+(k+1)+' de '+n:''):'Curso completado';
   }
-  function showGate(){var d=!!state.lead2;$('gform').hidden=d;$('gdone').hidden=!d;$('gbelow').hidden=d}
+  function showGate(){var d=!!state.lead2;$('course').classList.toggle('final',d&&state.at==='cierre');$('gform').hidden=d;$('gdone').hidden=!d;$('gbelow').hidden=d}
   var tT;function toast(t){var e=$('toastc');$('toasttxt').textContent=t;e.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){e.classList.remove('on')},2400)}
   function nextLabel(id){var i=idx(id);return 'Siguiente: '+L[i+1].name}
   function mark(id){
