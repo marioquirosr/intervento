@@ -261,28 +261,34 @@ gtag('config', 'G-1RHJ39L3EB');
   #caso .caso-card h3 .dot{color:#fe2f7e;}
   .caso-hook{font-size:clamp(17px,1.8vw,20px);line-height:1.55;color:#D9D5DE;max-width:600px;margin-top:22px;}
   .caso-seismo{display:block;width:calc(100% + 112px);margin:36px -56px 0;height:clamp(90px,13vw,150px);}
-  .caso-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.12);margin:0 -56px;padding:0 56px;}
-  .caso-kpi{padding:26px 18px 30px 0;min-width:0;}
-  .caso-kpi+.caso-kpi{padding-left:18px;border-left:1px solid rgba(255,255,255,.12);}
-  .caso-kpi .v{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,42px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
-  .caso-kpi .l{margin-top:8px;font-size:13.5px;line-height:1.45;color:#A39BA1;}
+  .caso-pils{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.12);margin:0 -56px;padding:0 56px;}
+  .caso-pil{padding:28px 22px 30px 0;min-width:0;display:flex;flex-direction:column;gap:14px;}
+  .caso-pil+.caso-pil{padding-left:22px;border-left:1px solid rgba(255,255,255,.12);}
+  .caso-pil .vb{font-size:13px;color:#fe2f7e;font-weight:500;}
+  #caso .caso-pil h4{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.2;color:#fff;margin:-8px 0 0;}
+  .caso-pil .v{font-family:var(--display);font-weight:800;font-size:clamp(34px,3.6vw,46px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:#fff;}
+  .caso-pil .l{margin-top:6px;font-size:13.5px;line-height:1.45;color:#A39BA1;}
+  .caso-pil .bt{margin-top:auto;padding-top:14px;border-top:1px dashed rgba(255,255,255,.14);font-size:13.5px;line-height:1.45;color:#D9D5DE;}
+  .caso-pil .bt b{color:#fff;font-weight:600;}
+  .caso-how{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:0 -56px;padding:20px 56px;border-top:1px solid rgba(255,255,255,.12);font-size:14px;color:#A39BA1;}
+  .caso-how .cst{color:#fff;font-weight:500;}
+  .caso-how .ar{color:#5D575B;}
+  .caso-how .hu{margin-left:auto;color:#D9D5DE;}
   .caso-go{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 -56px;padding:22px 56px;background:#fe2f7e;color:#121014;font-family:var(--display);font-weight:700;font-size:18px;transition:background .2s ease;}
   .caso-go span:last-child{font-size:24px;transition:transform .25s ease;}
   .caso-card:hover .caso-go{background:#ff4b91;}
   .caso-card:hover .caso-go span:last-child{transform:translateX(6px);}
   @media (max-width:820px){
-    .caso-kpis{grid-template-columns:repeat(2,minmax(0,1fr));}
-    .caso-kpi:nth-child(3){padding-left:0;border-left:0;}
-    .caso-kpi:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12);}
+    .caso-pils{grid-template-columns:1fr;}
+    .caso-pil{padding:24px 0;}
+    .caso-pil+.caso-pil{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.12);}
+    .caso-how .hu{margin-left:0;width:100%;}
   }
   @media (max-width:680px){
     #caso{padding:64px 0;}
     .caso-card{padding:32px 22px 0;border-radius:22px;}
     .caso-seismo{width:calc(100% + 44px);margin:28px -22px 0;}
-    .caso-kpis,.caso-go{margin:0 -22px;padding-left:22px;padding-right:22px;}
-    .caso-kpi{padding:20px 12px 22px 0;}
-    .caso-kpi+.caso-kpi{padding-left:12px;}
-    .caso-kpi:nth-child(3){padding-left:0;}
+    .caso-pils,.caso-how,.caso-go{margin:0 -22px;padding-left:22px;padding-right:22px;}
     .caso-go{font-size:16px;}
   }
   @media (prefers-reduced-motion: reduce){.caso-go span:last-child{transition:none;}}
@@ -529,18 +535,30 @@ gtag('config', 'G-1RHJ39L3EB');
   <div class="wrap">
     <span class="chip">Caso de éxito</span>
     <h2 style="margin-top:22px;">Lo construimos en la semana más difícil del año.</h2>
-    <p class="sub">Tras el terremoto del 9 de octubre, conectamos información confiable, una herramienta en vivo y ayuda trazable. Todo con IA, en horas y no en semanas, y sin pagar un dólar en pauta.</p>
+    <p class="sub">Tras el terremoto del 9 de octubre investigamos, validamos y construimos con IA 3 productos en paralelo. En horas, no en semanas, y sin pagar un dólar en pauta.</p>
     <a class="caso-card" href="casos/la-otra-replica/" style="margin-top:36px;">
       <div class="caso-top"><span>Panamá · <b>9 al 21 de octubre de 2026</b></span><span>Sismo de <b>7.7 Mw</b> · <b>100% orgánico</b>, $0 en pauta</span></div>
       <h3>La otra<br>réplica<span class="dot">.</span></h3>
-      <p class="caso-hook">Una sola fuente de datos y 3 productos: una serie que explicó el sismo sin alarmar, una página en vivo con cada réplica y una plataforma de donaciones que se actualizaba sola.</p>
+      <p class="caso-hook">Una sola fuente de datos confiable, el Instituto de Geociencias de la Universidad de Panamá, y 3 respuestas: entender lo que pasaba, consultarlo en vivo y ayudar a quienes lo perdieron todo.</p>
       <canvas class="caso-seismo" id="casoSeismo" aria-hidden="true"></canvas>
-      <div class="caso-kpis">
-        <div class="caso-kpi"><div class="v">744,557</div><div class="l">views orgánicas, sin pagar pauta</div></div>
-        <div class="caso-kpi"><div class="v">20 min</div><div class="l">como máximo, de dato oficial a publicación</div></div>
-        <div class="caso-kpi"><div class="v">7,072</div><div class="l">consultas a la página en vivo en 12 días</div></div>
-        <div class="caso-kpi"><div class="v">$1,910</div><div class="l">recaudados en 46 aportes, 96% de la meta</div></div>
+      <div class="caso-pils">
+        <div class="caso-pil">
+          <span class="vb">Entender</span><h4>Contenido que explicó el sismo</h4>
+          <div><div class="v">744,557</div><div class="l">views orgánicas de 4 carruseles y 1 Reel</div></div>
+          <p class="bt"><b>15–20 min</b> de dato oficial a pieza publicada</p>
+        </div>
+        <div class="caso-pil">
+          <span class="vb">Consultar</span><h4>Sismos Panamá en tiempo real</h4>
+          <div><div class="v">7,072</div><div class="l">consultas en 12 días; cada persona volvió 8 veces en promedio</div></div>
+          <p class="bt"><b>Menos de 30 min</b> de idea a página en vivo, conectada al IGC-UP</p>
+        </div>
+        <div class="caso-pil">
+          <span class="vb">Actuar</span><h4>Sistema ágil para la recolecta</h4>
+          <div><div class="v">$1,910</div><div class="l">en 46 aportes, 96% de la meta, con rendición de cuentas pública</div></div>
+          <p class="bt"><b>La IA lee cada comprobante</b> y actualiza el total sola, sin transcribir a mano</p>
+        </div>
       </div>
+      <div class="caso-how"><span class="cst">IA investiga</span><span class="ar">→</span><span class="cst">IA valida contra IGC-UP y USGS</span><span class="ar">→</span><span class="cst">IA construye</span><span class="hu">Una persona aprueba cada publicación</span></div>
       <div class="caso-go"><span>Ver el caso completo</span><span aria-hidden="true">→</span></div>
     </a>
   </div>
