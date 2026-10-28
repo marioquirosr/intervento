@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Caso Intervento: cómo la IA conectó información, una herramienta en vivo y ayuda trazable tras el terremoto de octubre 2026 en Panamá.">
+<title>La otra réplica · Intervento</title>
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://getintervento.com/casos/la-otra-replica/">
+<meta property="og:title" content="La otra réplica · Caso Intervento">
+<meta property="og:description" content="Cómo la IA conectó información, una herramienta en vivo y ayuda trazable tras el terremoto de octubre 2026 en Panamá.">
+<meta property="og:image" content="https://getintervento.com/og-image.jpg">
+<meta property="og:locale" content="es_PA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://getintervento.com/casos/la-otra-replica/">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1RHJ39L3EB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1RHJ39L3EB');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: caso estilo festival en bandas alternas carbón / blanco; un sismógrafo que se calma abre la historia y una sola fuente de datos se ramifica en 3 salidas. */
+:root{
+  --carbon:#121014;
+  --carbon-2:#1c191f;
+  --blanco:#ffffff;
+  --niebla:#f5f4f6;
+  --magenta:#fe2f7e;
+  --tinta-suave:#5d5763;
+  --humo:#a39ead;
+  --linea-oscura:rgba(255,255,255,.12);
+  --linea-clara:rgba(18,16,20,.12);
+  --display:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--blanco);color:var(--carbon);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.band{padding-block:clamp(64px,10vw,120px)}
+.dark{background:var(--carbon);color:var(--blanco)}
+.light{background:var(--blanco);color:var(--carbon)}
+.mist{background:var(--niebla);color:var(--carbon)}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.02em}
+h2{font-size:clamp(32px,5vw,56px);line-height:1.04;font-weight:800}
+h3{font-size:22px;line-height:1.2;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.dark .eyebrow{color:var(--humo)}
+.light .eyebrow,.mist .eyebrow{color:var(--tinta-suave)}
+.lede{font-size:clamp(18px,2vw,21px);line-height:1.55;max-width:62ch}
+.dark .muted{color:var(--humo)}
+.light .muted,.mist .muted{color:var(--tinta-suave)}
+.num{font-variant-numeric:tabular-nums}
+.dot{color:var(--magenta)}
+
+/* Barra superior */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--carbon);border-bottom:1px solid var(--linea-oscura)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--carbon)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;color:var(--blanco)}
+.mark{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.03em;text-decoration:none;color:var(--blanco);line-height:1}
+.mark .i{position:relative;display:inline-block}
+.mark .i::after{content:"";position:absolute;left:50%;top:.02em;width:.2em;height:.2em;border-radius:50%;background:var(--magenta);transform:translateX(-50%)}
+.top-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--humo)}
+
+/* Hero */
+.hero{padding-block:clamp(48px,8vw,96px) 0;overflow:hidden}
+.hero-grid{display:grid;gap:28px}
+.hero h1{font-size:clamp(56px,11vw,148px);line-height:.9;font-weight:800;letter-spacing:-.045em}
+.hero .lede{color:#d9d5de}
+.stamp{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px;color:var(--humo)}
+.stamp b{color:var(--blanco);font-weight:500}
+.seismo{display:block;width:100%;height:clamp(120px,18vw,200px);margin-top:40px}
+.seismo-legend{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--humo);padding-block:12px 32px;border-top:1px solid var(--linea-oscura)}
+
+/* Cifras */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--linea-oscura)}
+.kpi{padding:28px 20px 32px 0;border-right:1px solid var(--linea-oscura);min-width:0}
+.kpi+.kpi{padding-left:20px}
+.kpi:last-child{border-right:0}
+.kpi .v{font-family:var(--display);font-weight:800;font-size:clamp(32px,4.2vw,52px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.kpi .l{margin-top:10px;font-size:14px;line-height:1.45;color:var(--humo)}
+@media (max-width:820px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi:nth-child(2){border-right:0}.kpi:nth-child(3){padding-left:0}.kpi:nth-child(n+3){border-top:1px solid var(--linea-oscura)}}
+
+/* Contexto */
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.stack{display:grid;gap:20px}
+.risks{display:grid;gap:0;border-top:1px solid var(--linea-clara)}
+.risk{display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding-block:18px;border-bottom:1px solid var(--linea-clara)}
+.risk b{font-family:var(--display);font-size:18px}
+@media (max-width:520px){.risk{grid-template-columns:1fr;gap:4px}}
+
+/* Idea / ecosistema */
+.thesis{font-family:var(--display);font-weight:800;font-size:clamp(44px,8vw,104px);line-height:.95;letter-spacing:-.04em}
+.eco{margin-top:56px;display:grid;gap:24px}
+.source{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px;padding:20px 24px;border:1px solid var(--linea-oscura);border-radius:4px}
+.source .eyebrow{color:var(--magenta)}
+.source strong{font-family:var(--display);font-size:20px}
+.branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:820px){.branches{grid-template-columns:1fr}}
+.branch{appearance:none;text-align:left;font:inherit;color:var(--blanco);background:var(--carbon-2);border:1px solid var(--linea-oscura);border-radius:4px;padding:22px;cursor:pointer;display:grid;gap:10px;transition:border-color .2s,background .2s}
+.branch:hover{border-color:rgba(255,255,255,.3)}
+.branch:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+.branch[aria-selected="true"]{border-color:var(--magenta);background:#1f1a22}
+.branch .verb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--humo)}
+.branch[aria-selected="true"] .verb{color:var(--magenta)}
+.branch h3{font-size:24px}
+.branch .sub{font-size:14px;color:var(--humo);line-height:1.45}
+.eco-panel{border-top:1px solid var(--linea-oscura);padding-top:28px;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:32px}
+@media (max-width:820px){.eco-panel{grid-template-columns:1fr}}
+.eco-panel p{color:#d9d5de;max-width:60ch}
+.facts{display:grid;gap:14px;align-content:start}
+.fact{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--linea-oscura);padding-bottom:10px;font-size:14px}
+.fact span:first-child{color:var(--humo)}
+.fact span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+
+/* Línea de tiempo */
+.days{margin-top:40px;display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.day{appearance:none;flex:0 0 auto;min-width:72px;font:inherit;background:var(--blanco);border:1px solid var(--linea-clara);border-radius:4px;padding:10px 12px;cursor:pointer;text-align:left;color:var(--carbon)}
+.day .d{font-family:var(--display);font-weight:800;font-size:22px;line-height:1}
+.day .m{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave)}
+.day:focus-visible{outline:2px solid var(--magenta);outline-offset:2px}
+.day[aria-selected="true"]{background:var(--carbon);color:var(--blanco);border-color:var(--carbon)}
+.day[aria-selected="true"] .m{color:var(--humo)}
+.day.has::after{content:"";display:block;width:6px;height:6px;border-radius:50%;background:var(--magenta);margin-top:8px}
+.tl-panel{margin-top:24px;background:var(--blanco);border:1px solid var(--linea-clara);border-radius:4px;padding:clamp(20px,4vw,36px);display:grid;gap:20px;min-height:220px}
+.tl-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;align-items:baseline}
+.tl-head h3{font-size:clamp(24px,3vw,32px)}
+.tl-items{display:grid;gap:0}
+.tl-item{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding-block:14px;border-top:1px solid var(--linea-clara)}
+.tl-item .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave);padding-top:3px}
+.tl-item b{font-weight:600}
+@media (max-width:520px){.tl-item{grid-template-columns:1fr;gap:2px}}
+
+/* Proceso */
+.process{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--linea-clara)}
+@media (max-width:820px){.process{grid-template-columns:1fr}}
+.step{padding:28px 24px 28px 0;display:grid;gap:16px;align-content:start;min-width:0}
+.step+.step{border-left:1px solid var(--linea-clara);padding-left:24px}
+@media (max-width:820px){.step+.step{border-left:0;padding-left:0;border-top:1px solid var(--linea-clara)}}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--tinta-suave);letter-spacing:.12em}
+.roles{display:grid;gap:10px;font-size:15px}
+.role{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px}
+.role span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+.role.ia span{color:var(--carbon)}
+.role.hu span{color:var(--magenta)}
+.callout{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px 32px;align-items:baseline;padding-top:28px;border-top:1px solid var(--linea-clara)}
+.callout .big{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,72px);line-height:1;letter-spacing:-.03em}
+.callout p{max-width:48ch}
+
+/* Resultados */
+.results{display:grid;gap:clamp(56px,8vw,96px);margin-top:56px}
+.res{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:820px){.res{grid-template-columns:1fr}}
+.res-copy{display:grid;gap:16px}
+.res-copy .verb{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta)}
+.minis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 24px;margin-top:8px}
+.mini .v{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.mini .l{font-size:13px;color:var(--humo);margin-top:6px;line-height:1.4}
+.chart{border:1px solid var(--linea-oscura);border-radius:4px;padding:20px;min-width:0}
+.chart-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.chart-head .t{font-family:var(--display);font-weight:700;font-size:16px}
+.chart-head .s{font-family:var(--mono);font-size:12px;color:var(--humo)}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart-read{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--humo);min-height:1.6em}
+.hbars{display:grid;gap:14px}
+.hbar{display:grid;gap:6px}
+.hbar-top{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+.hbar-top span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--humo)}
+.track{height:10px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.fill{height:100%;background:var(--blanco);border-radius:2px}
+.fill.hot{background:var(--magenta)}
+.goal{position:relative;height:56px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.goal .fill{position:absolute;inset:0 auto 0 0;display:flex;align-items:center;padding-left:16px;font-family:var(--display);font-weight:800;color:var(--carbon);font-size:20px}
+.goal-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--humo);margin-top:8px}
+
+/* Negocio */
+.biz{margin-top:48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--linea-clara)}
+@media (max-width:720px){.biz{grid-template-columns:1fr}}
+.biz-item{padding:28px 28px 28px 0;display:grid;gap:10px;border-bottom:1px solid var(--linea-clara);min-width:0}
+.biz-item:nth-child(even){padding-left:28px;border-left:1px solid var(--linea-clara)}
+@media (max-width:720px){.biz-item:nth-child(even){padding-left:0;border-left:0}}
+.biz-item .from{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave)}
+
+/* Cierre */
+.close h2{font-size:clamp(40px,7vw,88px);line-height:.98}
+.cta-row{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 24px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:16px;text-decoration:none;border:1px solid var(--blanco)}
+.btn.primary{background:var(--magenta);border-color:var(--magenta);color:var(--carbon)}
+.btn.ghost{color:var(--blanco)}
+.btn:focus-visible{outline:2px solid var(--blanco);outline-offset:3px}
+.contact{margin-top:20px;font-family:var(--mono);font-size:13px;color:var(--humo)}
+.contact b{color:var(--blanco);font-weight:500;user-select:all}
+
+/* Notas */
+details.notes{margin-top:72px;border-top:1px solid var(--linea-oscura);padding-top:20px}
+details.notes summary{cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--humo);list-style:none}
+details.notes summary::-webkit-details-marker{display:none}
+details.notes summary::before{content:"+ ";color:var(--magenta)}
+details.notes[open] summary::before{content:"− "}
+details.notes ul{margin:16px 0 0;padding-left:18px;display:grid;gap:8px;font-size:14px;color:var(--humo);max-width:80ch}
+footer{padding-block:28px;border-top:1px solid var(--linea-oscura);font-family:var(--mono);font-size:12px;color:var(--humo)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="Intervento"><span class="i">ı</span>ntervento</a>
+    <span class="top-tag">Caso · Octubre 2026</span>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="dark hero">
+  <div class="wrap hero-grid">
+    <p class="eyebrow">Caso Intervento · IA en respuesta a crisis · Panamá</p>
+    <h1>La otra<br>réplica<span class="dot">.</span></h1>
+    <p class="lede">Después del terremoto, la tierra siguió moviéndose más de 600 veces. Nosotros respondimos con otra clase de réplica: información clara, herramientas en vivo y ayuda trazable, construidas con IA en horas y no en semanas.</p>
+    <div class="stamp num">
+      <span>Fecha <b>09.10.2026</b></span>
+      <span>Hora <b>12:56</b></span>
+      <span>Magnitud <b>7.7 Mw</b></span>
+      <span>Epicentro <b>cerca de Tonosí, Azuero</b></span>
+    </div>
+  </div>
+  <div class="wrap">
+    <canvas class="seismo" id="seismo" aria-label="Trazo de sismógrafo que empieza con una sacudida fuerte y se calma con el paso de los días"></canvas>
+    <div class="seismo-legend"><span>9 oct · sacudida</span><span>600+ réplicas en 6 días</span><span>21 oct · calma</span></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">744,557</div><div class="l">views de la serie educativa y el Reel en Instagram y Facebook</div></div>
+      <div class="kpi"><div class="v">20 min</div><div class="l">como máximo, de dato oficial a pieza publicada</div></div>
+      <div class="kpi"><div class="v">7,072</div><div class="l">consultas a Sismos Panamá en vivo en 12 días</div></div>
+      <div class="kpi"><div class="v">$1,910</div><div class="l">recaudados para Coclé en 46 aportes, 96% de la meta</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXTO -->
+<section class="light band">
+  <div class="wrap split">
+    <div class="stack">
+      <p class="eyebrow">01 · El contexto</p>
+      <h2>Miedo con mucho ruido y poco dato.</h2>
+    </div>
+    <div class="stack">
+      <p class="lede">El viernes 9 de octubre de 2026 un sismo de 7.7 Mw sacudió Panamá. En los 6 días siguientes hubo más de 600 réplicas. Circulaban cifras sueltas, rumores y explicaciones técnicas que nadie entendía.</p>
+      <p class="muted">Hacía falta responder rápido, sin errores y sin sumar alarma. Tres riesgos marcaban cada decisión:</p>
+      <div class="risks">
+        <div class="risk"><b>Llegar tarde</b><span>La búsqueda de respuestas es máxima en las primeras horas y cae con cada día que pasa.</span></div>
+        <div class="risk"><b>Publicar un error</b><span>En una emergencia, un dato falso multiplica el pánico.</span></div>
+        <div class="risk"><b>Sonar alarmista</b><span>El tono y el diseño pueden subir el estrés en vez de bajarlo.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEA -->
+<section class="dark band">
+  <div class="wrap">
+    <p class="eyebrow">02 · La idea</p>
+    <p class="thesis" style="margin-top:20px">Informar<br>es calmar<span class="dot">.</span></p>
+    <p class="lede muted" style="margin-top:28px">Cuando la gente entiende lo que pasa, sabe cómo reaccionar. Con esa tesis armamos un ecosistema: una sola fuente de datos confiable, tres salidas construidas con IA para tres necesidades distintas. Toca cada una.</p>
+
+    <div class="eco">
+      <div class="source">
+        <span class="eyebrow">Fuente única</span>
+        <strong>Instituto de Geociencias de la Universidad de Panamá (IGC-UP)</strong>
+        <span class="muted" style="font-size:14px">contrastado con el USGS</span>
+      </div>
+      <div class="branches" role="tablist" aria-label="Salidas del ecosistema">
+        <button class="branch" role="tab" id="tab-entender" aria-controls="eco-panel" aria-selected="true" data-k="entender">
+          <span class="verb">Entender</span><h3>Serie educativa</h3><span class="sub">4 carruseles y 1 Reel que explican el sismo en lenguaje simple</span>
+        </button>
+        <button class="branch" role="tab" id="tab-consultar" aria-controls="eco-panel" aria-selected="false" data-k="consultar">
+          <span class="verb">Consultar</span><h3>Sismos Panamá en vivo</h3><span class="sub">Una página móvil con cada réplica, al grano y actualizada</span>
+        </button>
+        <button class="branch" role="tab" id="tab-actuar" aria-controls="eco-panel" aria-selected="false" data-k="actuar">
+          <span class="verb">Actuar</span><h3>Team SOS 7.7</h3><span class="sub">Donaciones, acopio y rendición de cuentas en un solo lugar</span>
+        </button>
+      </div>
+      <div class="eco-panel" id="eco-panel" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EJECUCIÓN: LÍNEA DE TIEMPO -->
+<section class="mist band">
+  <div class="wrap">
+    <p class="eyebrow">03 · La ejecución</p>
+    <h2 style="margin-top:16px;max-width:18ch">12 días, día por día.</h2>
+    <p class="lede muted" style="margin-top:20px">Los puntos marcan los días en que algo salió al aire. Toca un día para ver qué se construyó y qué pasó.</p>
+    <div class="days" role="tablist" aria-label="Días del caso" id="days"></div>
+    <div class="tl-panel" id="tl-panel" role="tabpanel" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="light band">
+  <div class="wrap">
+    <p class="eyebrow">04 · Cómo trabajamos</p>
+    <h2 style="margin-top:16px;max-width:20ch">La IA ejecuta. El humano firma.</h2>
+    <p class="lede muted" style="margin-top:20px">La velocidad vino de la IA. La confianza vino de nunca delegar dos cosas: elegir la fuente y aprobar lo que se publica.</p>
+    <div class="process">
+      <div class="step">
+        <span class="n">PASO 1</span><h3>Investigar</h3>
+        <div class="roles">
+          <div class="role ia"><span>IA</span><p>Busca y consolida lo publicado sobre el sismo, las réplicas y su comportamiento.</p></div>
+          <div class="role hu"><span>Humano</span><p>Define qué preguntas tiene la gente y qué hace falta responder primero.</p></div>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n">PASO 2</span><h3>Validar</h3>
+        <div class="roles">
+          <div class="role ia"><span>IA</span><p>Cruza cada cifra contra el IGC-UP y el USGS y separa dato oficial de proyección propia.</p></div>
+          <div class="role hu"><span>Humano</span><p>Revisa el dato. Cuando la magnitud oficial pasó de 7.6 a 7.7, la siguiente pieza salió corregida.</p></div>
+        </div>
+      </div>
+      <div class="step">
+        <span class="n">PASO 3</span><h3>Amplificar</h3>
+        <div class="roles">
+          <div class="role ia"><span>IA</span><p>Escribe, diseña, programa y despliega: carruseles, páginas y tableros.</p></div>
+          <div class="role hu"><span>Humano</span><p>Aprueba tono, diseño y publicación. Nada sale sin esa firma.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout">
+      <span class="big num">15–20 min</span>
+      <p class="muted">de dato oficial a pieza publicada en la serie educativa. Sismos Panamá pasó de idea a página en vivo en menos de 30 minutos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="dark band">
+  <div class="wrap">
+    <p class="eyebrow">05 · Resultados</p>
+    <h2 style="margin-top:16px;max-width:20ch">El dato viajó porque servía.</h2>
+
+    <div class="results">
+      <!-- Entender -->
+      <div class="res">
+        <div class="res-copy">
+          <span class="verb">Entender</span>
+          <h3>La gente lo compartió como herramienta.</h3>
+          <p class="muted">La primera pieza tuvo 521 shares: 1 por cada 78 views. La gente se la mandó a su familia. El alcance de la serie bajó al mismo ritmo que el miedo, y por eso la velocidad fue clave.</p>
+          <div class="minis">
+            <div class="mini"><div class="v">92%</div><div class="l">de las views de la primera pieza vino de personas que no seguían la cuenta</div></div>
+            <div class="mini"><div class="v">43,044</div><div class="l">cuentas alcanzadas por la serie educativa</div></div>
+            <div class="mini"><div class="v">387,284</div><div class="l">views del Reel en Instagram, 99% de no seguidores</div></div>
+            <div class="mini"><div class="v">176</div><div class="l">nuevos seguidores en una semana</div></div>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="chart-head"><span class="t">La curva del miedo</span><span class="s">Views por carrusel, en orden de publicación</span></div>
+          <div class="hbars" id="serie-bars"></div>
+          <p class="chart-read">Cuanta más incertidumbre, más busca la gente entender.</p>
+        </div>
+      </div>
+
+      <!-- Consultar -->
+      <div class="res">
+        <div class="res-copy">
+          <span class="verb">Consultar</span>
+          <h3>Se volvió la página de referencia en el celular.</h3>
+          <p class="muted">Cada persona la abrió en promedio 8 veces. 11 días después del sismo, entre 50 y 65 personas seguían entrando a diario para revisar las réplicas.</p>
+          <div class="minis">
+            <div class="mini"><div class="v">969</div><div class="l">personas únicas en 12 días</div></div>
+            <div class="mini"><div class="v">21%</div><div class="l">volvió en otro día; 47 personas, en 5 días o más</div></div>
+            <div class="mini"><div class="v">58</div><div class="l">personas la consultaron 20 veces o más</div></div>
+            <div class="mini"><div class="v">96%</div><div class="l">del uso fue desde el celular</div></div>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="chart-head"><span class="t">Personas por día</span><span class="s">Sismos Panamá en vivo · 10 al 21 oct</span></div>
+          <svg id="sismos-chart" viewBox="0 0 640 260" role="img" aria-label="Gráfico de barras de personas por día en Sismos Panamá en vivo, con pico de 266 el 11 de octubre"></svg>
+          <p class="chart-read" id="sismos-read">Pasa el cursor o toca una barra.</p>
+        </div>
+      </div>
+
+      <!-- Actuar -->
+      <div class="res">
+        <div class="res-copy">
+          <span class="verb">Actuar</span>
+          <h3>La transparencia fue parte del producto.</h3>
+          <p class="muted">La IA lee cada comprobante de pago y actualiza el total y la lista de donantes sin volver a publicar el sitio. Al cerrar, cada aporte quedó respaldado con su comprobante público.</p>
+          <div class="minis">
+            <div class="mini"><div class="v">46</div><div class="l">aportes, con un promedio de $42</div></div>
+            <div class="mini"><div class="v">314</div><div class="l">personas visitaron la página en 16 días</div></div>
+            <div class="mini"><div class="v">54 s</div><div class="l">por persona en la lista de donantes, más del doble que el inicio</div></div>
+            <div class="mini"><div class="v">9</div><div class="l">organizadores coordinados desde una sola página</div></div>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="chart-head"><span class="t">Meta de recaudación</span><span class="s">Donaciones cerradas el 16 oct</span></div>
+          <div class="goal" aria-label="96% de la meta de 2,000 dólares"><div class="fill hot" style="width:96%">$1,910 · 96%</div></div>
+          <div class="goal-scale num"><span>$0</span><span>Meta $2,000</span></div>
+          <p class="chart-read">Lo entregado: comida, kits de aseo, carpas, colchonetas, ropa, sábanas y comida para mascotas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEGOCIO -->
+<section class="light band">
+  <div class="wrap">
+    <p class="eyebrow">06 · Lo que esto demuestra</p>
+    <h2 style="margin-top:16px;max-width:22ch">Una emergencia es la prueba más dura de eficiencia.</h2>
+    <p class="lede muted" style="margin-top:20px">Sin un equipo de desarrollo ni semanas de trabajo. Con IA bien dirigida. Lo mismo aplica a cualquier negocio que necesita moverse rápido sin sumar costos.</p>
+    <div class="biz">
+      <div class="biz-item"><span class="from">De Sismos Panamá</span><h3>De idea a producto en minutos.</h3><p class="muted">Validar una idea ya no exige meses ni un equipo de desarrollo. Se lanza, se mide con gente real y se ajusta.</p></div>
+      <div class="biz-item"><span class="from">De Team SOS 7.7</span><h3>Tareas manuales que se hacen solas.</h3><p class="muted">Leer comprobantes y actualizar totales era trabajo de horas. Hoy pasa sin que nadie lo toque, y sin errores de transcripción.</p></div>
+      <div class="biz-item"><span class="from">De la serie educativa</span><h3>Una fuente, muchas salidas.</h3><p class="muted">El mismo dato alimentó contenido, una página en vivo y una plataforma de donaciones. Ordenar la información primero multiplica lo que se puede construir con ella.</p></div>
+      <div class="biz-item"><span class="from">De todo el caso</span><h3>Velocidad con control.</h3><p class="muted">La IA hizo el trabajo pesado. Las decisiones que sostienen la confianza siguieron en manos de una persona.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="dark band close">
+  <div class="wrap">
+    <p class="eyebrow">Intervento</p>
+    <h2 style="margin-top:16px">Lo que hoy te toma horas, puede tomarte minutos<span class="dot">.</span></h2>
+    <p class="lede muted" style="margin-top:24px">Lo construimos en la semana más difícil del año. Imagina lo que podemos construir para tu negocio en una semana normal.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://wa.link/f4095r" target="_blank" rel="noopener">Conversemos por WhatsApp</a>
+      <a class="btn ghost" href="/">Conoce Intervento</a>
+    </div>
+    <p class="contact">WhatsApp <b>+507 6244-0096</b> · getintervento.com</p>
+
+    <details class="notes">
+      <summary>Notas sobre los datos</summary>
+      <ul>
+        <li>Serie educativa y Reel: métricas nativas de Instagram y Facebook, 9 al 15 de octubre de 2026. No hubo versión de control con otro estilo visual, así que el diseño se presenta como decisión con intención, no como causa demostrada del rendimiento.</li>
+        <li>Sismos Panamá en vivo: registros del servidor del 10 al 21 de octubre, sin bots, previsualizaciones ni visitas de prueba. "Persona" equivale a una conexión única.</li>
+        <li>Team SOS 7.7: Google Analytics 4 del 13 al 28 de octubre. Los aportes empezaron el 12 de octubre, antes de publicar la página, así que la recaudación no se atribuye solo al sitio.</li>
+        <li>Magnitud: 7.7 Mw según el USGS y el IGC-UP. La estimación inicial fue de 7.6.</li>
+        <li>Porcentajes redondeados hacia arriba.</li>
+      </ul>
+    </details>
+  </div>
+</section>
+</main>
+
+<footer class="dark">
+  <div class="wrap"><span>© 2026 Intervento · Panamá</span><span>Datos sísmicos: IGC-UP · USGS</span></div>
+</footer>
+
+<script>
+(function(){
+  /* Sismógrafo: sacudida fuerte que decae, con réplicas cada vez menores */
+  var c=document.getElementById('seismo'); if(!c) return;
+  var ctx=c.getContext('2d');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rng(s){return function(){s=(s*9301+49297)%233280;return s/233280;};}
+  var pts=[];
+  function build(w){
+    var r=rng(7); pts=[];
+    var n=Math.max(300,Math.floor(w/2));
+    for(var i=0;i<n;i++){
+      var t=i/n;
+      var main=Math.exp(-Math.pow((t-0.06)/0.035,2))*1;
+      var decay=Math.exp(-t*4.2)*0.55;
+      var after=0;
+      [0.18,0.27,0.36,0.49,0.63].forEach(function(p,k){after+=Math.exp(-Math.pow((t-p)/0.012,2))*(0.35-k*0.06);});
+      var amp=Math.max(main,decay+after)+0.025;
+      pts.push((r()*2-1)*amp);
+    }
+  }
+  function draw(progress){
+    var dpr=window.devicePixelRatio||1, w=c.clientWidth, h=c.clientHeight;
+    c.width=w*dpr; c.height=h*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.clearRect(0,0,w,h);
+    ctx.strokeStyle='rgba(255,255,255,.08)'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(0,h/2); ctx.lineTo(w,h/2); ctx.stroke();
+    var m=Math.floor(pts.length*progress);
+    ctx.lineWidth=1.4; ctx.lineJoin='round';
+    ctx.beginPath();
+    for(var i=0;i<m;i++){
+      var x=i/(pts.length-1)*w, y=h/2-pts[i]*(h/2-6);
+      i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+    }
+    var g=ctx.createLinearGradient(0,0,w,0);
+    g.addColorStop(0,'#fe2f7e'); g.addColorStop(0.16,'#fe2f7e'); g.addColorStop(0.3,'#ffffff'); g.addColorStop(1,'rgba(255,255,255,.55)');
+    ctx.strokeStyle=g; ctx.stroke();
+  }
+  function init(){build(c.clientWidth); draw(1);}
+  init();
+  if(!reduce){
+    var start=null;
+    function step(ts){ if(!start) start=ts; var p=Math.min(1,0.15+(ts-start)/1800*0.85); draw(p); if(p<1) requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  var to; window.addEventListener('resize',function(){clearTimeout(to);to=setTimeout(init,120);});
+})();
+
+(function(){
+  /* Ecosistema */
+  var data={
+    entender:{
+      p:['Una serie de 4 carruseles respondió las preguntas que la gente ya se hacía: ¿por qué sigue temblando?, ¿cuándo paran?, ¿por qué no todo Panamá lo sintió igual?',
+         'Diseñamos para bajar el estrés: sin fotos de daños ni rojo de alerta, un color distinto por pieza, un planeta ilustrado que explica en vez de asustar y una pieza dedicada a validar el miedo. Un Reel en primera persona funcionó como puerta de entrada a la cuenta.'],
+      f:[['Piezas','4 carruseles + 1 Reel'],['Dato a publicación','15–20 min'],['Views totales','744,557'],['Shares en Instagram','1,107']]
+    },
+    consultar:{
+      p:['Una página pública que consolida en vivo la data del IGC-UP sobre las réplicas, sin jerga y lista para abrir desde el celular.',
+         'La IA la programó y la desplegó en menos de 30 minutos. Se compartió por WhatsApp, Instagram y Facebook, y la gente la usó como herramienta de consulta durante días.'],
+      f:[['Lanzamiento','10 oct'],['Tiempo de construcción','< 30 min'],['Consultas','7,072'],['Personas que volvieron','208']]
+    },
+    actuar:{
+      p:['Un movimiento ciudadano de 9 organizadores necesitaba un solo lugar confiable para recibir ayuda para Coclé: cómo donar, dónde dejar insumos, quiénes están detrás y qué se hizo con el dinero.',
+         'Detrás de la página corre una plataforma interna: la IA lee los comprobantes de Yappy y ACH y actualiza el total y la lista de donantes en vivo. Al cierre se publicó la rendición de cuentas con comprobantes descargables.'],
+      f:[['Recaudado','$1,910'],['Meta cumplida','96%'],['Aportes','46']]
+    }
+  };
+  var panel=document.getElementById('eco-panel');
+  var tabs=[].slice.call(document.querySelectorAll('.branch'));
+  function show(k){
+    var d=data[k];
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.k===k?'true':'false');});
+    panel.setAttribute('aria-labelledby','tab-'+k);
+    panel.innerHTML='<div class="stack">'+d.p.map(function(x){return '<p>'+x+'</p>';}).join('')+'</div>'+
+      '<div class="facts">'+d.f.map(function(x){return '<div class="fact"><span>'+x[0]+'</span><span>'+x[1]+'</span></div>';}).join('')+'</div>';
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(t.dataset.k);});
+    t.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var j=(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;tabs[j].focus();show(tabs[j].dataset.k);}
+    });
+  });
+  show('entender');
+})();
+
+(function(){
+  /* Línea de tiempo */
+  var days=[
+    {d:9,t:'El sismo',has:true,items:[
+      ['12:56','<b>Sismo de 7.7 Mw</b> con epicentro cerca de Tonosí. Las primeras lecturas lo ubican entre 7.5 y 7.6.'],
+      ['Serie','Arranca la serie educativa, que corre hasta el 15 de octubre. La primera pieza usa la estimación inicial de 7.6; al fijarse oficialmente en 7.7 Mw, la siguiente sale corregida.']]},
+    {d:10,t:'Sale Sismos Panamá en vivo',has:true,items:[
+      ['Producto','<b>Sismos Panamá en vivo</b> se publica. La IA lo construye y despliega en menos de 30 minutos.'],
+      ['Uso','191 personas el primer día. A las 9 pm, 75 personas la consultaban en la misma hora.']]},
+    {d:11,t:'El día de más demanda',has:false,items:[
+      ['Uso','<b>266 personas</b> en Sismos Panamá, el máximo del periodo.']]},
+    {d:12,t:'La hora pico',has:false,items:[
+      ['Uso','Entre 6 y 7 pm, <b>243 consultas</b> en una sola hora.'],
+      ['Ayuda','Llegan los primeros aportes a Team SOS 7.7, todavía sin página.']]},
+    {d:13,t:'Sale Team SOS 7.7',has:true,items:[
+      ['Producto','<b>Landing de Team SOS 7.7</b>: cómo donar por Yappy y ACH y dónde quedan los centros de acopio. La medición se instala minutos después.'],
+      ['Uso','Unas 150 sesiones ese mismo día, el pico del sitio.']]},
+    {d:14,t:'Donaciones en vivo',has:true,items:[
+      ['Producto','<b>Total y lista de donantes en vivo.</b> La IA lee los comprobantes y la página se actualiza sola.']]},
+    {d:16,t:'Meta casi completa',has:true,items:[
+      ['Ayuda','<b>Cierran las donaciones:</b> $1,910 en 46 aportes, 96% de la meta.']]},
+    {d:17,t:'Cierra el acopio',has:true,items:[
+      ['Ayuda','<b>Cierran los centros de acopio.</b> La ayuda sale hacia Coclé.']]},
+    {d:19,t:'Gracias',has:true,items:[
+      ['Producto','La página cambia a un mensaje de agradecimiento con foto del equipo.']]},
+    {d:21,t:'Rendición de cuentas',has:true,items:[
+      ['Producto','<b>Rendición de cuentas publicada</b>, con comprobantes en PDF y galería de fotos de las entregas.'],
+      ['Uso','Sismos Panamá sigue con 50–65 personas diarias, 12 días después del sismo.']]}
+  ];
+  var bar=document.getElementById('days'), panel=document.getElementById('tl-panel');
+  var btns=days.map(function(x,i){
+    var b=document.createElement('button');
+    b.className='day'+(x.has?' has':''); b.setAttribute('role','tab'); b.id='day-'+x.d;
+    b.setAttribute('aria-controls','tl-panel');
+    b.innerHTML='<div class="d num">'+x.d+'</div><div class="m">oct</div>';
+    b.addEventListener('click',function(){show(i);});
+    b.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();var j=Math.min(days.length-1,Math.max(0,i+(e.key==='ArrowRight'?1:-1)));btns[j].focus();show(j);}
+    });
+    bar.appendChild(b); return b;
+  });
+  function show(i){
+    var x=days[i];
+    btns.forEach(function(b,j){b.setAttribute('aria-selected',j===i?'true':'false');});
+    panel.setAttribute('aria-labelledby','day-'+x.d);
+    panel.innerHTML='<div class="tl-head"><h3>'+x.t+'</h3><span class="eyebrow">'+x.d+' de octubre de 2026</span></div>'+
+      '<div class="tl-items">'+x.items.map(function(it){return '<div class="tl-item"><span class="tag">'+it[0]+'</span><p>'+it[1]+'</p></div>';}).join('')+'</div>';
+  }
+  show(0);
+})();
+
+(function(){
+  /* Serie: barras horizontales */
+  var s=[['Qué está pasando con los temblores',40771],['No todo Panamá lo sintió igual',20543],['Nada está mal contigo',6324],['Más de 600 réplicas en 6 días',1757]];
+  var max=s[0][1], el=document.getElementById('serie-bars');
+  el.innerHTML=s.map(function(x,i){
+    return '<div class="hbar"><div class="hbar-top"><span>'+x[0]+'</span><span>'+x[1].toLocaleString('en-US')+'</span></div><div class="track"><div class="fill'+(i===0?' hot':'')+'" style="width:'+Math.max(2,x[1]/max*100)+'%"></div></div></div>';
+  }).join('');
+})();
+
+(function(){
+  /* Sismos: barras por día */
+  var d=[[10,191],[11,266],[12,247],[13,183],[14,133],[15,126],[16,92],[17,51],[18,44],[19,54],[20,64],[21,21]];
+  var svg=document.getElementById('sismos-chart'), read=document.getElementById('sismos-read');
+  var W=640,H=260,L=40,R=8,T=12,B=32,max=300;
+  var ns='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(ns,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  [0,100,200,300].forEach(function(v){
+    var y=T+(H-T-B)*(1-v/max);
+    svg.appendChild(el('line',{x1:L,x2:W-R,y1:y,y2:y,stroke:'rgba(255,255,255,.1)','stroke-width':1}));
+    var t=el('text',{x:L-8,y:y+4,'text-anchor':'end',fill:'#a39ead','font-size':11,'font-family':'IBM Plex Mono, monospace'});t.textContent=v;svg.appendChild(t);
+  });
+  var bw=(W-L-R)/d.length;
+  var rects=[];
+  d.forEach(function(x,i){
+    var h=(H-T-B)*x[1]/max, X=L+i*bw+bw*.18, Y=T+(H-T-B)-h;
+    var r=el('rect',{x:X,y:Y,width:bw*.64,height:h,rx:2,fill:x[0]===11?'#fe2f7e':'rgba(255,255,255,.82)',tabindex:0,role:'img','aria-label':x[0]+' oct: '+x[1]+' personas'+(x[0]===21?' (día parcial)':'')});
+    r.style.cursor='pointer';
+    function on(){rects.forEach(function(o){o.style.opacity='.45';});r.style.opacity='1';read.textContent=x[0]+' oct · '+x[1]+' personas'+(x[0]===21?' (día parcial)':'')+(x[0]===11?' · día de más demanda':'');}
+    function off(){rects.forEach(function(o){o.style.opacity='1';});read.textContent='Pasa el cursor o toca una barra.';}
+    r.addEventListener('mouseenter',on);r.addEventListener('focus',on);r.addEventListener('click',on);
+    r.addEventListener('mouseleave',off);r.addEventListener('blur',off);
+    svg.appendChild(r);rects.push(r);
+    var t=el('text',{x:L+i*bw+bw/2,y:H-10,'text-anchor':'middle',fill:'#a39ead','font-size':11,'font-family':'IBM Plex Mono, monospace'});t.textContent=x[0];svg.appendChild(t);
+  });
+  var lab=el('text',{x:L+1*bw+bw/2,y:T+(H-T-B)*(1-266/max)-6,'text-anchor':'middle',fill:'#ffffff','font-size':12,'font-weight':600,'font-family':'Inter, sans-serif'});lab.textContent='266';svg.appendChild(lab);
+})();
+</script>
+</body>
+</html>
