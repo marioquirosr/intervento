@@ -1126,6 +1126,8 @@ html{scroll-behavior:smooth}
   var TOTAL=L.length;
 
   function track(name,params){try{if(window.gtag)gtag('event',name,params||{})}catch(e){}}
+  function lp(id){var i=idx(id);return i<0?{}:{leccion_numero:i+1,leccion_nombre:L[i].name,seccion:MODS[L[i].mod]}}
+  var seenStep={};
   document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="wa.me"]');if(a)track(a.id==='m6later'?'guardar_para_despues':'whatsapp_click',{cta:a.textContent.trim()})});
   var ORDER=['inicio'].concat(L.map(function(x){return x.id})).concat(['cierre']);
   function idx(id){for(var i=0;i<TOTAL;i++)if(L[i].id===id)return i;return -1}
@@ -1168,6 +1170,7 @@ html{scroll-behavior:smooth}
       steps.forEach(function(s,i){s.hidden=i!==k;if(i===k){s.classList.remove('enter');void s.offsetWidth;s.classList.add('enter')}});
       ch.forEach(function(c,i){c.classList.toggle('on',i===k);c.classList.toggle('seen',i<k);c.setAttribute('aria-selected',i===k?'true':'false')});
       sg._k=k;sg._n=steps.length;
+      var lid=sg.closest('.screen').id;if(lid===state.at&&idx(lid)>=0){var sk=lid+':'+k;if(!seenStep[sk]){seenStep[sk]=1;var pp=lp(lid);pp.paso=k+1;pp.pasos_total=steps.length;pp.leccion_paso=(idx(lid)+1)+'.'+(k+1);track('paso_visto',pp)}}
       if(scr)window.scrollTo(0,0);
       if(sg.closest('.screen').id===state.at)navSync();
     }
@@ -1214,7 +1217,10 @@ html{scroll-behavior:smooth}
     var home=id==='inicio';
     $('course').hidden=home;
     if(!home)$('inicio').hidden=true;
+    var prevAt=state.at;
     state.at=id;save();paint(id);initNudge(id);setDrawer(false);
+    if(idx(id)>=0&&id!==prevAt){var vp=lp(id);vp.progreso=Math.ceil(100*idx(id)/TOTAL);track('leccion_vista',vp);if(sgx&&sgx._show){var sk0=id+':0';if(!seenStep[sk0]){seenStep[sk0]=1;var p0=lp(id);p0.paso=1;p0.pasos_total=sgx._n||1;p0.leccion_paso=(idx(id)+1)+'.1';track('paso_visto',p0)}}}
+    if(id==='cierre'&&!state.fin){state.fin=1;save();track('curso_completado',{lecciones_completadas:Object.keys(state.done).length})}
     navSync();
     $('navbar').hidden=false;
     try{history.replaceState(null,'','#'+id)}catch(e){}
@@ -1236,10 +1242,10 @@ html{scroll-behavior:smooth}
   var tT;function toast(t){var e=$('toastc');$('toasttxt').textContent=t;e.classList.add('on');clearTimeout(tT);tT=setTimeout(function(){e.classList.remove('on')},2400)}
   function nextLabel(id){var i=idx(id);return 'Siguiente: '+L[i+1].name}
   function mark(id){
-    if(!state.done[id]){state.done[id]=1;track('leccion_completada',{leccion:id});save();paint(state.at);toast(idx(id)===TOTAL-1?'¡Terminaste el curso!':'Lección '+(idx(id)+1)+' completada')}
+    if(!state.done[id]){state.done[id]=1;track('leccion_completada',(function(){var q=lp(id);q.leccion=id;return q})());save();paint(state.at);toast(idx(id)===TOTAL-1?'¡Terminaste el curso!':'Lección '+(idx(id)+1)+' completada')}
     if(state.at===id&&NEXT[id]){var nb=$('nextbtn');nb.classList.add('mag','nudge')}
   }
-  $('start').addEventListener('click',function(){track('guia_inicio');go(L[0].id)});
+  $('start').addEventListener('click',function(){track('guia_inicio');track('curso_iniciado');go(L[0].id)});
   $('again').addEventListener('click',function(){go(L[0].id)});
   $('homelink').addEventListener('click',function(e){e.preventDefault();go('inicio')});
   document.querySelectorAll('a[href="#inicio"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();go('inicio')})});
@@ -1282,7 +1288,7 @@ html{scroll-behavior:smooth}
     var r=$('resume');r.hidden=false;
     var ri=idx(resumeAt);
     r.textContent=ri>=0?'Seguir en la lección '+(ri+1):'Seguir donde ibas';
-    r.addEventListener('click',function(){go(resumeAt)});
+    r.addEventListener('click',function(){var rp=lp(resumeAt);track('curso_retomado',rp);go(resumeAt)});
   }
 
   /* M0 */
