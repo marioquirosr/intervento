@@ -418,6 +418,22 @@ gtag('config', 'G-1RHJ39L3EB');
   .sticky-cta{position:fixed;bottom:0;left:0;right:0;z-index:40;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(14,12,16,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:translateY(110%);transition:transform .3s ease;display:none;}
   .sticky-cta.show{transform:none;}
   .sticky-cta .btn{display:block;text-align:center;width:100%;padding:16px;}
+
+  /* cursos: enlace en el menú y adelanto de /aprende */
+  nav .navr{display:flex;align-items:center;gap:22px;}
+  .hcursos{display:grid;gap:16px;margin-top:36px;}
+  @media(min-width:760px){.hcursos{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  .hcurso{display:flex;flex-direction:column;gap:8px;padding:30px 28px;border-radius:20px;background:#F1ECEF;color:#121014;text-decoration:none;border:1px solid transparent;transition:border-color .25s ease,transform .15s ease;}
+  .hcurso:hover{border-color:rgba(254,47,126,.35);transform:translateY(-3px);}
+  .hcurso .rl{display:flex;align-items:center;gap:10px;min-height:24px;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:#5D575B;font-weight:500;}
+  .hcurso .nw{font-size:10.5px;letter-spacing:.15em;font-weight:600;color:#fff;background:#fe2f7e;padding:4px 10px;border-radius:999px;}
+  .hcurso h3{font-size:clamp(21px,2.4vw,25px);line-height:1.25;color:#121014;margin-top:4px;}
+  .hcurso p{font-size:14.5px;color:#5D575B;line-height:1.6;}
+  .hcurso .hm{font-size:13px;color:#121014;font-weight:500;margin-top:6px;}
+  .hcurso .go{margin-top:auto;padding-top:16px;font-size:14.5px;font-weight:600;color:#fe2f7e;}
+  section.claro .btn2.hall{margin-top:24px;color:#121014;border-color:rgba(0,0,0,.18);}
+  section.claro .btn2.hall:hover{border-color:#fe2f7e;background:rgba(254,47,126,.06);}
+  @media (max-width:680px){nav .link.navc{display:inline;}}
   .js #type{visibility:hidden;}
   @media (max-width:680px){
     body::after{display:none;}
@@ -456,7 +472,7 @@ gtag('config', 'G-1RHJ39L3EB');
 
 <nav>
   <a class="logo" href="#" aria-label="intervento"><span class="ig"><span class="igs"></span><span class="igd"></span></span>ntervento</a>
-  <a class="link" href="https://wa.me/50762440096?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20el%20diagn%C3%B3stico%20de%2030%20minutos.">Agendar diagnóstico</a>
+  <div class="navr"><a class="link navc" href="aprende/">Cursos</a><a class="link" href="https://wa.me/50762440096?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20el%20diagn%C3%B3stico%20de%2030%20minutos.">Agendar diagnóstico</a></div>
 </nav>
 
 <header class="hero claro">
@@ -594,24 +610,26 @@ gtag('config', 'G-1RHJ39L3EB');
 
 <section id="curso" class="claro">
   <div class="wrap">
-    <span class="chip">Curso gratis</span>
+    <span class="chip">Cursos gratis</span>
     <h2 style="margin-top:22px;">¿Prefieres empezar gratis, a tu ritmo?</h2>
-    <p class="sub">Antes de invertir en un taller o una clase, entiende la IA por tu cuenta: 7 lecciones cortas, con ejemplos y ejercicios, pensadas para quien nunca la ha usado.</p>
-    <div class="curso-card">
-      <div class="curso-info">
-        <p class="rl">IA desde cero</p>
-        <h3>De no saber qué es la IA a tener tu primera conversación con ella.</h3>
-        <ul class="curso-list">
-          <li><b>Parte 1 · Entender</b> — qué es la IA, cómo "piensa" y por qué a veces se equivoca.</li>
-          <li><b>Parte 2 · Usar</b> — escribe tu primer mensaje y ten tu primera conversación real.</li>
-        </ul>
-        <p class="curso-meta">25 minutos · gratis · sin registro</p>
-      </div>
-      <div class="curso-cta">
-        <a class="btn" href="ia/" id="cursoSeccionCta">Empezar el curso gratis</a>
-        <span class="micro">Se hace desde tu celular o computadora, a tu ritmo.</span>
-      </div>
+    <p class="sub">Antes de invertir en un taller o una clase, aprende por tu cuenta: cursos cortos, con ejemplos y ejercicios. Gratis y sin registro.</p>
+    <div class="hcursos">
+      <a class="hcurso" href="ia/" id="cursoSeccionCta">
+        <span class="rl">Principiante</span>
+        <h3>IA desde cero</h3>
+        <p>De no saber qué es la IA a tener tu primera conversación con ella.</p>
+        <span class="hm">7 lecciones · 25 minutos · gratis</span>
+        <span class="go">Empezar el curso →</span>
+      </a>
+      <a class="hcurso" href="seguridad/" id="cursoSegCta">
+        <span class="rl"><span class="nw">Nuevo</span>Principiante</span>
+        <h3>Seguridad en tiempos de IA</h3>
+        <p>Reconoce las estafas hechas con IA, protege tus datos y sabe qué hacer si te pasa.</p>
+        <span class="hm">8 lecciones · 35 minutos · gratis</span>
+        <span class="go">Empezar el curso →</span>
+      </a>
     </div>
+    <a class="btn2 hall" href="aprende/" id="verCursos">Ver todos los cursos →</a>
   </div>
 </section>
 

@@ -729,6 +729,14 @@ html{scroll-behavior:smooth}
 #course.final .side,#course.final .menu-btn,#course.final .scrim{display:none!important}
 #course.final .shell{grid-template-columns:minmax(0,1fr)}
 
+/* siguiente curso */
+.nextc{display:flex;flex-direction:column;gap:6px;margin-top:22px;padding:20px 22px;border-radius:16px;background:var(--blush);color:var(--ink);text-decoration:none;transition:transform .15s}
+.nextc:hover{transform:translateY(-2px)}
+.nextc .nk{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--mag)}
+.nextc b{font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-.01em}
+.nextc .nd{font-size:15px;line-height:1.55;color:var(--ink);max-width:60ch}
+.nextc .ng{margin-top:6px;font-size:14.5px;font-weight:600;color:var(--mag)}
+
 </style>
 </head>
 <body>
@@ -1033,13 +1041,14 @@ html{scroll-behavior:smooth}
         <div class="row sum-actions"><button class="btn sm" type="button" id="sumprint">Guardar como PDF</button></div>
       </div>
       </details>
+      <a class="nextc" href="/seguridad/" id="nextcourse"><span class="nk">Siguiente curso · Nuevo</span><b>Seguridad en tiempos de IA</b><span class="nd">Ahora que sabes usar la IA, aprende a reconocer las estafas que se hacen con ella. 8 lecciones · 35 minutos · gratis.</span><span class="ng">Empezar el curso →</span></a>
       <div class="nexth"><span class="eyebrow lm">Siguientes pasos</span><h2>¿Y ahora qué?</h2><p class="st">Ya diste el primer paso. Elige cómo quieres seguir.</p></div>
       <div class="paths">
         <a class="bc hl" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20reservar%20una%20clase%20individual%20%28%2450%20la%20hora%29." target="_blank" rel="noopener"><span class="k">Quiero profundizar</span><b>Clase individual</b><span class="price">$50 <small>la hora</small></span><span class="d">Uno a uno, a tu ritmo. Desde lo básico hasta armar juntos una herramienta simple para tu negocio.</span><span class="go">Reservar mi clase →</span></a>
         <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero%20y%20quiero%20aprender%20en%20grupo.%20%C2%BFCu%C3%A1ndo%20es%20el%20pr%C3%B3ximo%20taller%3F" target="_blank" rel="noopener"><span class="k2">Quiero aprender en grupo</span><b>Talleres</b><span class="d">Cupos limitados con emprendedores, creadores y dueños de negocio. Sales con al menos una tarea real resuelta con IA ese mismo día.</span><span class="go">Preguntar por el próximo cupo →</span></a>
         <a class="bc" href="https://wa.me/50762440096?text=Hola%2C%20termin%C3%A9%20el%20curso%20IA%20desde%20cero.%20Ya%20tengo%20una%20idea%20clara%20y%20quiero%20que%20construyamos%20algo%20juntos.%20Quiero%20cotizar." target="_blank" rel="noopener"><span class="k2">Ya la tengo clara</span><b>Construyamos algo juntos</b><span class="d">Una herramienta, una automatización o tu idea funcionando. Cuéntanos qué necesitas y te enviamos una cotización.</span><span class="go">Contactar para cotizar →</span></a>
       </div>
-      <div class="pfoot"><a id="weblink" href="https://getintervento.com" target="_blank" rel="noopener">Conoce Intervento</a><button type="button" id="again">Repasar las lecciones</button></div>
+      <div class="pfoot"><a id="allcourses" href="/aprende/">Ver todos los cursos</a><a id="weblink" href="https://getintervento.com" target="_blank" rel="noopener">Conoce Intervento</a><button type="button" id="again">Repasar las lecciones</button></div>
     </div>
     </div>
   </div>
@@ -1534,6 +1543,8 @@ html{scroll-behavior:smooth}
   $('m6open').addEventListener('click',leave);
   $('m6alt').querySelectorAll('a').forEach(function(a){a.addEventListener('click',leave)});
   $('weblink').addEventListener('click',function(){if(typeof track==='function')track('visita_intervento')});
+  $('nextcourse').addEventListener('click',function(){track('ir_curso',{curso:'seguridad-ia',origen:'cierre_ia'})});
+  $('allcourses').addEventListener('click',function(){track('ver_cursos',{origen:'cierre_ia'})});
 
 
   /* arranque */
