@@ -1142,6 +1142,21 @@ html{scroll-behavior:smooth}
   function idx(id){for(var i=0;i<TOTAL;i++)if(L[i].id===id)return i;return -1}
   var KEY='iadc-v4', state={done:{},at:'inicio'};
   function nudge(el){if(el)el.classList.add('nudge')}
+  /* cuando hay varias opciones, el brillo se turna entre ellas para no sugerir una respuesta */
+  function nudgeAlt(els){
+    els=[].slice.call(els||[]);if(els.length<2){nudge(els[0]);return}
+    if(els[0]._na)return;els[0]._na=1;
+    var box=els[0].closest('.panel,.demo'),i=0,stop=false,tm;
+    function off(){els.forEach(function(e){e.classList.remove('nudge')})}
+    function tick(){
+      if(stop||!document.body.contains(els[0])||els.some(function(e){return e.disabled}))return off();
+      if(els[0].offsetParent===null){tm=setTimeout(tick,600);return}
+      off();var el=els[i%els.length];i++;el.classList.add('nudge');
+      tm=setTimeout(function(){el.classList.remove('nudge');tm=setTimeout(tick,250)},1600);
+    }
+    if(box)box.addEventListener('click',function(){stop=true;clearTimeout(tm);off()},{capture:true,once:true});
+    tick();
+  }
   var NUD={m0:'#m0sort .sortc',m1:'#m1chips .chip:first-child',m2:'#m2o .opt:nth-child(2)',m3:'#m3same',m6:'#m6copy'};
   function initNudge(id){var q=NUD[id];if(!q||state.done[id])return;nudge(document.querySelector(q))}
   function reveal(id){var el=$(id);el.hidden=false;try{el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'nearest'})}catch(e){}}
@@ -1321,7 +1336,7 @@ html{scroll-behavior:smooth}
         res.appendChild(document.createTextNode(it[2]));res.hidden=false;
         c0++;var p=$('m0c');p.textContent=c0+' de '+m0.length;
         if(c0>=m0.length){p.textContent='Listo';p.classList.add('ok');reveal('m0l');mark('m0')}
-        else{var nb0=mk('button','btn sm','Siguiente ejemplo →');nb0.addEventListener('click',function(){card.classList.remove('cur');var nc=cards0[ci+1];nc.classList.add('cur');nudge(nc.querySelector('button'))});card.appendChild(nb0);nudge(nb0)}
+        else{var nb0=mk('button','btn sm','Siguiente ejemplo →');nb0.addEventListener('click',function(){card.classList.remove('cur');var nc=cards0[ci+1];nc.classList.add('cur');nudgeAlt(nc.querySelectorAll('.yn button'))});card.appendChild(nb0);nudge(nb0)}
       });
       yn.appendChild(b);
     });
