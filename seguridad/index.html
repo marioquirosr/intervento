@@ -729,6 +729,14 @@ html{scroll-behavior:smooth}
 #course.final .side,#course.final .menu-btn,#course.final .scrim{display:none!important}
 #course.final .shell{grid-template-columns:minmax(0,1fr)}
 
+/* siguiente curso */
+.nextc{display:flex;flex-direction:column;gap:6px;margin-top:22px;padding:20px 22px;border-radius:16px;background:var(--blush);color:var(--ink);text-decoration:none;transition:transform .15s}
+.nextc:hover{transform:translateY(-2px)}
+.nextc .nk{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;color:var(--mag)}
+.nextc b{font-family:var(--display);font-size:20px;font-weight:700;letter-spacing:-.01em}
+.nextc .nd{font-size:15px;line-height:1.55;color:var(--ink);max-width:60ch}
+.nextc .ng{margin-top:6px;font-size:14.5px;font-weight:600;color:var(--mag)}
+
 
 /* ===== Seguridad en tiempos de IA: añadidos sobre el reproductor de Aprende IA desde cero ===== */
 /* módulo 1 en blanco: mismo reproductor, contraste invertido */
@@ -1343,8 +1351,23 @@ footer .m a{color:var(--mute-d)}
   function idx(id){for(var i=0;i<TOTAL;i++)if(L[i].id===id)return i;return -1}
   var KEY='segia-v1', state={done:{},at:'inicio'};
   function nudge(el){if(el)el.classList.add('nudge')}
-  var NUD={s1:'#s1sort .sortc.cur button',s2:'#s2q .qopt',s3:'#s3msg .tk',s4:'#s4q .qopt',s5:'#s5q .qopt',s6:'#s6sort .sortc.cur button',s7:'#s7pool button',s8:'#s8chk .chk'};
-  function initNudge(id){var q=NUD[id];if(!q||state.done[id])return;nudge(document.querySelector(q))}
+  var NUD={s1:'@#s1sort .sortc.cur .yn button',s2:'@#s2q .qopt',s3:'@#s3msg .tk',s4:'@#s4q .quiz:not([hidden]) .qopt',s5:'@#s5q .qopt',s6:'@#s6sort .sortc.cur .yn button',s7:'@#s7pool button',s8:'#s8chk .chk'};
+  /* cuando hay varias opciones, el brillo se turna entre ellas para no sugerir una respuesta */
+  function nudgeAlt(els){
+    els=[].slice.call(els||[]);if(els.length<2){nudge(els[0]);return}
+    if(els[0]._na)return;els[0]._na=1;
+    var box=els[0].closest('.panel,.demo'),i=0,stop=false,tm;
+    function off(){els.forEach(function(e){e.classList.remove('nudge')})}
+    function tick(){
+      if(stop||!document.body.contains(els[0])||els.some(function(e){return e.disabled}))return off();
+      if(els[0].offsetParent===null){tm=setTimeout(tick,600);return}
+      off();var el=els[i%els.length];i++;el.classList.add('nudge');
+      tm=setTimeout(function(){el.classList.remove('nudge');tm=setTimeout(tick,250)},1600);
+    }
+    if(box)box.addEventListener('click',function(){stop=true;clearTimeout(tm);off()},{capture:true,once:true});
+    tick();
+  }
+  function initNudge(id){var q=NUD[id];if(!q||state.done[id])return;if(q.charAt(0)==='@')nudgeAlt(document.querySelectorAll(q.slice(1)));else nudge(document.querySelector(q))}
   function reveal(id){var el=$(id);el.hidden=false;try{el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'nearest'})}catch(e){}}
   document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('.panel,.demo');if(c)c.querySelectorAll('.nudge').forEach(function(x){x.classList.remove('nudge')})},true);
   try{var s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.done)state=s}catch(e){}
@@ -1518,7 +1541,7 @@ footer .m a{color:var(--mute-d)}
           res.appendChild(document.createTextNode(it.e));res.hidden=false;
           c++;var p=$(pill);p.textContent=c+' de '+items.length;
           if(c>=items.length){p.textContent='Listo';p.classList.add('ok');reveal(lessonEl);mark(lid)}
-          else{var nb=mk('button','btn sm','Siguiente →');nb.type='button';nb.addEventListener('click',function(){card.classList.remove('cur');var nc=cards[ci+1];nc.classList.add('cur');nudge(nc.querySelector('button'))});card.appendChild(nb);nudge(nb)}
+          else{var nb=mk('button','btn sm','Siguiente →');nb.type='button';nb.addEventListener('click',function(){card.classList.remove('cur');var nc=cards[ci+1];nc.classList.add('cur');nudgeAlt(nc.querySelectorAll('.yn button'))});card.appendChild(nb);nudge(nb)}
         });
         yn.appendChild(b);
       });
@@ -1566,7 +1589,7 @@ footer .m a{color:var(--mute-d)}
   /* demo del inicio */
   (function(){
     var bs=$('dsugg').querySelectorAll('button'),af=$('dafter');
-    nudge(bs[1]);
+    nudgeAlt(bs);
     bs.forEach(function(b){b.addEventListener('click',function(){
       bs.forEach(function(x){x.disabled=true;x.classList.remove('nudge')});b.classList.add('pick');
       var ok=b.getAttribute('data-a')==='1';
