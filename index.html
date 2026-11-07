@@ -434,6 +434,16 @@ gtag('config', 'G-1RHJ39L3EB');
   section.claro .btn2.hall{margin-top:24px;color:#121014;border-color:rgba(0,0,0,.18);}
   section.claro .btn2.hall:hover{border-color:#fe2f7e;background:rgba(254,47,126,.06);}
   @media (max-width:680px){nav .link.navc{display:inline;}}
+  /* portada: acceso pequeño a Aprende IA */
+  section.aband{padding:0 0 96px;}
+  .abox{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:26px 30px;border-radius:20px;background:#F1ECEF;color:#121014;text-decoration:none;border:1px solid transparent;transition:border-color .25s ease,transform .15s ease;}
+  .abox:hover{border-color:rgba(254,47,126,.35);transform:translateY(-2px);}
+  .abox .abt{display:flex;flex-direction:column;gap:4px;}
+  .abox .rl{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:#5D575B;font-weight:500;}
+  .abox b{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,24px);letter-spacing:-.01em;line-height:1.25;}
+  .abox .ad{font-size:14.5px;color:#5D575B;}
+  .abox .go{font-size:14.5px;font-weight:600;color:#fe2f7e;white-space:nowrap;}
+  @media (max-width:680px){section.aband{padding:0 0 64px;}.abox{padding:22px;}}
   .js #type{visibility:hidden;}
   @media (max-width:680px){
     body::after{display:none;}
@@ -479,7 +489,7 @@ gtag('config', 'G-1RHJ39L3EB');
   <div class="wrap">
     <h1 id="type" aria-label="Agilidad con IA. De horas a minutos.">Agilidad con <span class="neon">IA</span>.<br>De horas a minutos.</h1>
     <p class="sub">Somos una firma de agilidad con IA para emprendedores, creadores, negocios y empresas. Lo construimos por ti, o aprendes a hacerlo con nosotros.</p>
-    <a class="btn" id="heroCta" href="https://wa.me/50762440096?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20el%20diagn%C3%B3stico%20de%2030%20minutos.">Agendar diagnóstico — 30 minutos</a><a class="btn2" href="#sesiones">Aprender IA</a>
+    <a class="btn" id="heroCta" href="https://wa.me/50762440096?text=Hola%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20agendar%20el%20diagn%C3%B3stico%20de%2030%20minutos.">Agendar diagnóstico — 30 minutos</a><a class="btn2" href="aprende/">Aprender IA</a>
     <span class="micro">Diagnóstico gratis · por WhatsApp · sin compromiso</span>
     <p class="cred">Miembros del <a href="#compromiso">Observatorio Panameño de Inteligencia Artificial</a></p>
     <p class="notlbl">Para que quede claro</p>
@@ -580,56 +590,12 @@ gtag('config', 'G-1RHJ39L3EB');
   </div>
 </section>
 
-<section id="sesiones">
+<section id="aprende" class="claro aband">
   <div class="wrap">
-    <span class="chip">Aprende IA</span>
-    <h2 style="margin-top:22px;">Aprende IA con nosotros.</h2>
-    <p class="sub">Para emprendedores, creadores de contenido, dueños de negocio y equipos. Desde entender qué es la IA hasta usarla para ganar horas en tu día a día. Nada complicado, cero jerga.</p>
-    <div class="lcs">
-      <a class="lc hl" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20reservar%20una%20clase%20individual%20de%20IA." target="_blank" rel="noopener">
-        <span class="pill">Uno a uno</span>
-        <h3>Clase individual</h3>
-        <p>Una hora, un tema, ritmo tuyo. Desde una intro básica a la IA hasta armar juntos una herramienta simple para tu negocio.</p>
-        <span class="go">Reservar mi clase →</span>
-      </a>
-      <a class="lc" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20un%20cupo%20para%20el%20pr%C3%B3ximo%20taller%20de%20IA." target="_blank" rel="noopener">
-        <span class="rl">Grupos pequeños</span>
-        <h3>Talleres</h3>
-        <p>Cupos limitados con emprendedores, creadores y dueños de negocio. Aprendes haciendo: sales con al menos una tarea real resuelta con IA ese mismo día.</p>
-        <span class="go">Preguntar por el próximo cupo →</span>
-      </a>
-      <a class="lc" href="https://wa.me/50762440096?text=Hola%2C%20quiero%20llevar%20una%20conferencia%20o%20sesi%C3%B3n%20de%20IA%20a%20mi%20equipo%20o%20evento." target="_blank" rel="noopener">
-        <span class="rl">Empresas, gremios y eventos</span>
-        <h3>Conferencias y sesiones para equipos</h3>
-        <p>Charlas para eventos, universidades y gremios, o una sesión diseñada para tu equipo. Desde "qué es la IA" hasta cómo usarla para ganar agilidad en el día a día.</p>
-        <span class="go">Llevar una a mi equipo o evento →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="curso" class="claro">
-  <div class="wrap">
-    <span class="chip">Cursos gratis</span>
-    <h2 style="margin-top:22px;">¿Prefieres empezar gratis, a tu ritmo?</h2>
-    <p class="sub">Antes de invertir en un taller o una clase, aprende por tu cuenta: cursos cortos, con ejemplos y ejercicios. Gratis y sin registro.</p>
-    <div class="hcursos">
-      <a class="hcurso" href="ia/" id="cursoSeccionCta">
-        <span class="rl">Principiante</span>
-        <h3>Aprende IA desde cero</h3>
-        <p>De no saber qué es la IA a tener tu primera conversación con ella.</p>
-        <span class="hm">7 lecciones · 25 minutos · gratis</span>
-        <span class="go">Empezar el curso →</span>
-      </a>
-      <a class="hcurso" href="seguridad/" id="cursoSegCta">
-        <span class="rl"><span class="nw">Nuevo</span>Principiante</span>
-        <h3>Seguridad en tiempos de IA</h3>
-        <p>Reconoce las estafas hechas con IA, protege tus datos y sabe qué hacer si te pasa.</p>
-        <span class="hm">8 lecciones · 35 minutos · gratis</span>
-        <span class="go">Empezar el curso →</span>
-      </a>
-    </div>
-    <a class="btn2 hall" href="aprende/" id="verCursos">Ver todos los cursos →</a>
+    <a class="abox" href="aprende/" id="aprendeCta">
+      <span class="abt"><span class="rl">Aprende IA</span><b>¿Quieres aprender IA desde cero?</b><span class="ad">Cursos gratis y clases individuales para empezar a tu ritmo.</span></span>
+      <span class="go">Ir a Aprende IA →</span>
+    </a>
   </div>
 </section>
 
